@@ -6,6 +6,7 @@ var move_timer = 0
 func _init():
 	SPEED = 40
 	DAMAGE = 15
+	TYPE = "ENEMY"
 
 func _ready():
 	move_dir = dir.rand()
