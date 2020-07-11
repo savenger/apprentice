@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=2 format=2]
 
-[ext_resource path="res://Assets/enemy_fire.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Graphics/Assets( Firemonster).png" type="Texture" id=1]
 
 [resource]
 resource_name = "EnemyFire"
@@ -8,7 +8,7 @@ resource_name = "EnemyFire"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( -6, -3, 161, 152 )
+0/region = Rect2( 7, 143, 162, 204 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
