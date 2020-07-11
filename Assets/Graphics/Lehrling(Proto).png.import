@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/enemy.png-047abaaa45204cc0c6ed4394524e3a98.stex"
+path="res://.import/Lehrling(Proto).png-170b4efb1d960082ee0bb21c944e41a6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/enemy.png"
-dest_files=[ "res://.import/enemy.png-047abaaa45204cc0c6ed4394524e3a98.stex" ]
+source_file="res://Assets/Graphics/Lehrling(Proto).png"
+dest_files=[ "res://.import/Lehrling(Proto).png-170b4efb1d960082ee0bb21c944e41a6.stex" ]
 
 [params]
 

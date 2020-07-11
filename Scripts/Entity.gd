@@ -1,9 +1,25 @@
 extends KinematicBody2D
 
-var MAX_HEALTH = 100
+
+enum ELEMENTS {
+	Fire,
+	Ice,
+	Earth,
+	Wind
+}
+
+var COUNTER_ELEMENTS = {
+	ELEMENTS.Fire: ELEMENTS.Ice,
+	ELEMENTS.Ice: ELEMENTS.Fire,
+	ELEMENTS.Earth: ELEMENTS.Wind,
+	ELEMENTS.Wind: ELEMENTS.Earth
+}
+
+var MAX_HEALTH
 var SPEED
-var TYPE = "ENEMY"
+var TYPE
 var DAMAGE
+var health
 
 var move_dir = Vector2(0, 0)
 var knock_dir = Vector2(0, 0)
@@ -12,22 +28,24 @@ var sprite_dir = "down"
 var hit_stun = 0
 var texture_default = null
 var texture_hurt = null
-var health = MAX_HEALTH
 
 func _ready():
 	if TYPE == "ENEMY":
 		set_collision_mask_bit(1, 1)
 		set_physics_process(false)
-	texture_default = $Sprite.texture
+		texture_default = $Sprite.texture
 	# texture_hurt = load($Sprite.texture.get_path().replace(".png", "_hurt.png"))
 
 func movement_loop():
-	var motion
-	if hit_stun == 0:
-		motion = move_dir.normalized() * SPEED
-	else:
-		motion = knock_dir.normalized() * 125
-	move_and_slide(motion, Vector2(0, 0))
+	if TYPE == "PLAYER":
+		move_and_slide(move_dir.normalized() * SPEED)
+	elif TYPE == "ENEMY":
+		var motion
+		if hit_stun == 0:
+			motion = move_dir.normalized() * SPEED
+		else:
+			motion = knock_dir.normalized() * 125
+		move_and_slide(motion, Vector2(0, 0))
 
 func sprite_dir_loop():
 	match move_dir:
@@ -49,19 +67,30 @@ func damage_loop():
 	health = min(MAX_HEALTH, health)
 	if hit_stun > 0:
 		hit_stun -= 1
-		$Sprite.texture = texture_hurt
+		#$Sprite.texture = texture_hurt
 	else:
-		$Sprite.texture = texture_default
-		if TYPE == "ENEMY" && health <= 0:
-			var drop = randi() % 3
-			if drop == 0:
-				instance_scene(preload("res://Scenes/Potion.tscn"))
-			# instance_scene(preload("res://Scenes/EnemyDeath.tscn"))
-			queue_free()
+		#$Sprite.texture = texture_default
+		if health <= 0:
+			if TYPE == "PLAYER":
+				#game_over
+				print("game over")
+				get_tree().reload_current_scene()
+			elif TYPE == "ENEMY":
+				var drop = randi() % 3
+				if drop == 0:
+					instance_scene(preload("res://Scenes/Potion.tscn"))
+				# instance_scene(preload("res://Scenes/EnemyDeath.tscn"))
+				queue_free()
 	for area in $Hitbox.get_overlapping_areas():
 		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
-			health -= body.get("DAMAGE")
+			var multiplier = 1
+			if TYPE != "PLAYER":
+				if body.get("ELEMENT") == COUNTER_ELEMENTS[get("ELEMENT")]:
+					multiplier = 2
+				elif body.get("ELEMENT") == get("ELEMENT"):
+					multiplier = -1
+			update_health(health - multiplier * body.get("DAMAGE"))
 			hit_stun = 10
 			knock_dir = global_transform.origin - body.global_transform.origin
 
@@ -76,3 +105,10 @@ func instance_scene(scene):
 	var new_scene = scene.instance()
 	new_scene.global_position = global_position
 	get_parent().add_child(new_scene)
+
+func update_health(value):
+	health = clamp(value, 0, MAX_HEALTH)
+	if TYPE == "PLAYER":
+		get_parent().get_node("Player_HealthBar").value = 100 * health / MAX_HEALTH
+	elif TYPE == "ENEMY":
+		get_node("HealthBar").value = 100 * health / MAX_HEALTH
