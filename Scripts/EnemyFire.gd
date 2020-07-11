@@ -17,7 +17,11 @@ func _physics_process(delta):
 	if move_timer > 0:
 		move_timer -= 1
 	if move_timer == 0:
-		move_dir = dir.rand()
+		# move towards player
+		var player = get_node("../Player")
+		if player:
+			move_dir = -1 * (global_position - player.global_position)
+		# TODO: animation
 		"""
 		if move_dir != Vector2(0, 0):
 			anim_switch("walk")
