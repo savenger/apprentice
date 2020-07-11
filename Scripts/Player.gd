@@ -3,7 +3,7 @@ extends "res://Scripts/Entity.gd"
 func _init():
 	MAX_HEALTH = 100
 	health = MAX_HEALTH
-	SPEED = 300
+	SPEED = 400
 	TYPE = "PLAYER"
 
 var spell = preload("res://Scenes/Spell.tscn")
