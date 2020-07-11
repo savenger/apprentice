@@ -1,20 +1,5 @@
 extends KinematicBody2D
 
-
-enum ELEMENTS {
-	Fire,
-	Ice,
-	Earth,
-	Wind
-}
-
-var COUNTER_ELEMENTS = {
-	ELEMENTS.Fire: ELEMENTS.Ice,
-	ELEMENTS.Ice: ELEMENTS.Fire,
-	ELEMENTS.Earth: ELEMENTS.Wind,
-	ELEMENTS.Wind: ELEMENTS.Earth
-}
-
 var MAX_HEALTH
 var SPEED
 var TYPE
@@ -86,7 +71,7 @@ func damage_loop():
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
 			var multiplier = 1
 			if TYPE != "PLAYER":
-				if body.get("ELEMENT") == COUNTER_ELEMENTS[get("ELEMENT")]:
+				if body.get("ELEMENT") == elements.COUNTER_ELEMENTS[get("ELEMENT")]:
 					multiplier = 2
 				elif body.get("ELEMENT") == get("ELEMENT"):
 					multiplier = -1
