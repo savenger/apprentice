@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/3-3_guitar.wav-e55b4e8be0ae94cbb082a94a7bafe74a.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/3-3_guitar.wav"
+dest_files=[ "res://.import/3-3_guitar.wav-e55b4e8be0ae94cbb082a94a7bafe74a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
