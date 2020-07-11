@@ -9,7 +9,7 @@ onready var hp = max_hp
 var speed = 200
 var dir : Vector2 = Vector2()
 
-var spell = preload("res://Spell.tscn")
+var spell = preload("res://Scenes/Spell.tscn")
 
 func _process(delta):
 	attack()
