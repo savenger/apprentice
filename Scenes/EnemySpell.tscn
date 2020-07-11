@@ -1,7 +1,21 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/EnemySpell.gd" type="Script" id=1]
 [ext_resource path="res://Assets/spellFire.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends RigidBody2D
+
+var speed = 500
+var DAMAGE = 10
+var ELEMENT
+
+func _ready():
+	var player = get_node(\"../Player\")
+	apply_impulse(Vector2(), Vector2(speed, 0).rotated(get_angle_to(player.global_position)))
+
+func _on_Spell_body_entered(body):
+	queue_free()
+"
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
@@ -13,7 +27,7 @@ radius = 15.0592
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
-script = ExtResource( 1 )
+script = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

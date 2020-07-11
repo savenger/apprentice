@@ -11,3 +11,10 @@ var COUNTER_ELEMENTS = {
 	Earth: Wind,
 	Wind: Earth
 }
+
+var ELEMENT_FRAMES = {
+	Fire: 3,
+	Ice: 2,
+	Earth: 2,
+	Wind: 2
+}

@@ -5,7 +5,10 @@ var move_timer = 0
 
 var ELEMENT
 
-var spell = preload("res://Scenes/EnemySpell.tscn")
+var spell_fire = preload("res://Scenes/SpellFire.tscn")
+var spell_ice = preload("res://Scenes/SpellIce.tscn")
+var spell_earth = preload("res://Scenes/SpellEarth.tscn")
+var spell_wind = preload("res://Scenes/SpellWind.tscn")
 
 func _init():
 	MAX_HEALTH = 40
@@ -13,20 +16,23 @@ func _init():
 
 func attack_loop():
 	if randi() % 100 == 1:
-		var spell_instance = spell.instance()
-		spell_instance.ELEMENT = ELEMENT
+		var spell_instance
 		var el = "Fire"
-		match spell_instance.ELEMENT:
+		match ELEMENT:
 			elements.Fire:
 				el = "Fire"
+				spell_instance = spell_fire.instance()
 			elements.Ice:
 				el = "Ice"
+				spell_instance = spell_ice.instance()
 			elements.Earth:
 				el = "Earth"
+				spell_instance = spell_earth.instance()
 			elements.Wind:
 				el = "Wind"
-		var img_path = "res://Assets/spell" + el + ".png"
-		spell_instance.get_node("Sprite").texture = load(img_path)
+				spell_instance = spell_wind.instance()
+		
+		spell_instance.ORIGIN = "Enemy"
 		var player = get_node("../Player")
 		get_node("Origin").rotation = get_angle_to(player.global_position)
 		spell_instance.position = get_node("Origin/Aim").get_global_position()

@@ -4,7 +4,8 @@ func _init():
 	SPEED = 800
 	DAMAGE = 10
 	ELEMENT = elements.Wind
+	ORIGIN = "Player"
 
 func _on_Spell_body_entered(body):
-	if body.name != "Player":
+	if body.name != ORIGIN:
 		queue_free()
