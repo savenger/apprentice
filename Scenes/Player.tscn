@@ -1,15 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Graphics/Lehrling(Proto).png" type="Texture" id=3]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-
-[node name="icon" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 4.15117, -55.3468, 18.6472, 9.8499, 26.6502, 75.791, 2.8187, 80.4682, -25.0219, 73.1183, -21.9037, 10.3099, -3.17024, -55.1471, -16.2866, -71.6177, 0.976364, -94.8334, 15.4614, -76.3799 )
@@ -25,7 +20,7 @@ position = Vector2( 138.836, 0 )
 position = Vector2( 0, -8 )
 polygon = PoolVector2Array( 8, -48, 19.4962, -68.6259, 1.95544, -91.8154, -20.6395, -63.5718, -7.26091, -47.5175, -24.2071, 3.02381, -29.9769, 82.9697, -2.1974, 92.0972, 29.9475, 88.5256, 29.5506, 44.0783, 17.2483, -19.8146 )
 
-[node name="Lehrling(Proto)" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -8 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
