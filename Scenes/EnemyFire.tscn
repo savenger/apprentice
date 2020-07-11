@@ -27,3 +27,8 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 1.18921, 9.51367 )
 shape = SubResource( 2 )
+
+[node name="Origin" type="Position2D" parent="."]
+
+[node name="Aim" type="Position2D" parent="Origin"]
+position = Vector2( 119.921, 0 )
