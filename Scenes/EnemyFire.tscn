@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "walkleft"
 length = 0.5
 loop = true
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "values": [ 15, 16, 17, 18, 19 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "walkright"
 length = 0.5
 loop = true
@@ -64,8 +64,7 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "walkup"
+[sub_resource type="Animation" id=6]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -128,6 +127,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/walkdown = SubResource( 3 )
-anims/walkleft = SubResource( 5 )
-anims/walkright = SubResource( 6 )
-anims/walkup = SubResource( 4 )
+anims/walkleft = SubResource( 4 )
+anims/walkright = SubResource( 5 )
+anims/walkup = SubResource( 6 )
