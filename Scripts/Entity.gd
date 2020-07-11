@@ -22,12 +22,15 @@ func _ready():
 	# texture_hurt = load($Sprite.texture.get_path().replace(".png", "_hurt.png"))
 
 func movement_loop():
-	var motion
-	if hit_stun == 0:
-		motion = move_dir.normalized() * SPEED
-	else:
-		motion = knock_dir.normalized() * 125
-	move_and_slide(motion, Vector2(0, 0))
+	if TYPE == "PLAYER":
+		move_and_slide(move_dir.normalized() * SPEED)
+	elif TYPE == "ENEMY":
+		var motion
+		if hit_stun == 0:
+			motion = move_dir.normalized() * SPEED
+		else:
+			motion = knock_dir.normalized() * 125
+		move_and_slide(motion, Vector2(0, 0))
 
 func sprite_dir_loop():
 	match move_dir:
@@ -48,13 +51,16 @@ func anim_switch(animation):
 func damage_loop():
 	if TYPE == "PLAYER":
 		health = min(MAX_HEALTH, health)
-		if health <= 0:
-			print("game over") #debug
+		if hit_stun > 0:
+			hit_stun -= 1
+			#TODO $Sprite.texture = texture_hurt
+		#if health <= 0:
 			#TODO game over
 		for area in $Hitbox.get_overlapping_areas():
 			var body = area.get_parent()
-			if body.get("TYPE") == "ENEMY":
+			if hit_stun == 0 and body.get("DAMAGE") != null:
 				health -= body.get("DAMAGE")
+				hit_stun = 60
 				print(str(health) + "hp") #debug
 	elif TYPE == "ENEMY":
 		health = min(MAX_HEALTH, health)
