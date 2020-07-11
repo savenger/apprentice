@@ -8,6 +8,7 @@ var spell = preload("res://Scenes/EnemySpell.tscn")
 func _init():
 	SPEED = 40
 	DAMAGE = 15
+	TYPE = "ENEMY"
 
 func _ready():
 	move_dir = dir.rand()
