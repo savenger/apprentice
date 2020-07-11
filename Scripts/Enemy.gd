@@ -19,6 +19,7 @@ func attack_loop():
 		spell_instance.position = get_node("Origin/Aim").get_global_position()
 		get_parent().add_child(spell_instance)
 
+
 func _physics_process(delta):
 	movement_loop()
 	sprite_dir_loop()
