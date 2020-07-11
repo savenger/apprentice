@@ -76,6 +76,8 @@ func damage_loop():
 				print("game over")
 				get_tree().reload_current_scene()
 			elif TYPE == "ENEMY":
+				get_parent().score += 1
+				get_node("GUI").updateScore(get_parent().score)
 				var drop = randi() % 3
 				if drop == 0:
 					instance_scene(preload("res://Scenes/Potion.tscn"))
@@ -109,6 +111,6 @@ func instance_scene(scene):
 func update_health(value):
 	health = clamp(value, 0, MAX_HEALTH)
 	if TYPE == "PLAYER":
-		get_parent().get_node("Player_HealthBar").value = 100 * health / MAX_HEALTH
+		get_parent().get_node("GUI").updateHealth( 100 * health / MAX_HEALTH)
 	elif TYPE == "ENEMY":
 		get_node("HealthBar").value = 100 * health / MAX_HEALTH
