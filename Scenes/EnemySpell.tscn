@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Spell.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/EnemySpell.gd" type="Script" id=1]
 [ext_resource path="res://Assets/spell.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -9,7 +9,7 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 15.0592
 
-[node name="Spell" type="RigidBody2D"]
+[node name="EnemySpell" type="RigidBody2D"]
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
