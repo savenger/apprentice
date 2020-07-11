@@ -8,6 +8,7 @@ var health
 
 var move_dir = Vector2(0, 0)
 var knock_dir = Vector2(0, 0)
+var knock_multiplier = 1
 var sprite_dir = "down"
 
 var hit_stun = 0
@@ -29,7 +30,7 @@ func movement_loop():
 		if hit_stun == 0:
 			motion = move_dir.normalized() * SPEED
 		else:
-			motion = knock_dir.normalized() * 125
+			motion = knock_dir.normalized() * 125 * knock_multiplier
 		move_and_slide(motion, Vector2(0, 0))
 
 func sprite_dir_loop():
@@ -88,11 +89,14 @@ func damage_loop():
 		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
 			var multiplier = 1
+			knock_multiplier = 1
 			if TYPE != "PLAYER":
 				if body.get("ELEMENT") == elements.COUNTER_ELEMENTS[get("ELEMENT")]:
 					multiplier = 2
 				elif body.get("ELEMENT") == get("ELEMENT"):
 					multiplier = -1
+				if body.get("ELEMENT") == elements.Wind:
+					knock_multiplier = 3
 			update_health(health - multiplier * body.get("DAMAGE"))
 			hit_stun = 10
 			knock_dir = global_transform.origin - body.global_transform.origin

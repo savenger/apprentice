@@ -14,6 +14,7 @@ func _init():
 func attack_loop():
 	if randi() % 100 == 1:
 		var spell_instance = spell.instance()
+		spell_instance.ELEMENT = ELEMENT
 		var player = get_node("../Player")
 		get_node("Origin").rotation = get_angle_to(player.global_position)
 		spell_instance.position = get_node("Origin/Aim").get_global_position()

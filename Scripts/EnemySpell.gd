@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var speed = 500
 var DAMAGE = 10
+var ELEMENT
 
 func _ready():
 	var player = get_node("../Player")
