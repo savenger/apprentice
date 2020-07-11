@@ -38,4 +38,5 @@ func _physics_process(delta):
 		else:
 			anim_switch("idle")
 		"""
+		anim_switch("walk")
 		move_timer = move_timer_length
