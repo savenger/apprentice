@@ -57,21 +57,12 @@ func sprite_dir_loop():
 			sprite_dir = "left"
 		else:
 			sprite_dir = "down"
-		
-	match move_dir:
-		dir.left:
-			sprite_dir = "left"
-		dir.right:
-			sprite_dir = "right"
-		dir.up:
-			sprite_dir = "up"
-		dir.down:
-			sprite_dir = "down"
 
 func anim_switch(animation):
 	var new_anim = str(animation, sprite_dir)
-	if $AnimationPlayer.current_animation != new_anim:
-		$AnimationPlayer.play(new_anim)
+	if $AnimationPlayer:
+		if $AnimationPlayer.current_animation != new_anim:
+			$AnimationPlayer.play(new_anim)
 
 func damage_loop():
 	health = min(MAX_HEALTH, health)
