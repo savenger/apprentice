@@ -19,6 +19,10 @@ config/name="Apprentice"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+dir="*res://Scripts/Directions.gd"
+
 [input]
 
 move_up={
