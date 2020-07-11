@@ -13,7 +13,7 @@ func _ready():
 	move_dir = dir.rand()
 
 func attack_loop():
-	if randi() % 50 == 1:
+	if randi() % 100 == 1:
 		var spell_instance = spell.instance()
 		var player = get_node("../Player")
 		get_node("Origin").rotation = get_angle_to(player.global_position)
