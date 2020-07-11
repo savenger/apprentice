@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Control
 
 
 
@@ -13,3 +13,9 @@ func _on_TextureButton_Credits_pressed():
 
 func _on_TextureButton_NewGame_pressed():
 	get_tree().change_scene("res://Scenes/Main.tscn")
+
+
+func _on_AudioStreamPlayer_finished():
+	get_node("Node/AudioStreamPlayer_Full").play()
+
+
