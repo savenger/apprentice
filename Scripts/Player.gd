@@ -4,6 +4,8 @@ signal health_updated()
 signal killed()
 
 func _init():
+	MAX_HEALTH = 100
+	health = MAX_HEALTH
 	SPEED = 200
 	TYPE = "PLAYER"
 
