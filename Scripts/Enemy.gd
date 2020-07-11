@@ -7,6 +7,10 @@ var ELEMENT
 
 var spell = preload("res://Scenes/EnemySpell.tscn")
 
+func _init():
+	MAX_HEALTH = 40
+	health = MAX_HEALTH
+
 func attack_loop():
 	if randi() % 100 == 1:
 		var spell_instance = spell.instance()

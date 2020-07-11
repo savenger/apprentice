@@ -15,10 +15,11 @@ var COUNTER_ELEMENTS = {
 	ELEMENTS.Wind: ELEMENTS.Earth
 }
 
-var MAX_HEALTH = 100
+var MAX_HEALTH
 var SPEED
 var TYPE
 var DAMAGE
+var health
 
 var move_dir = Vector2(0, 0)
 var knock_dir = Vector2(0, 0)
@@ -27,7 +28,6 @@ var sprite_dir = "down"
 var hit_stun = 0
 var texture_default = null
 var texture_hurt = null
-var health = MAX_HEALTH
 
 func _ready():
 	if TYPE == "ENEMY":
@@ -109,6 +109,6 @@ func instance_scene(scene):
 func update_health(value):
 	health = clamp(value, 0, MAX_HEALTH)
 	if TYPE == "PLAYER":
-		get_parent().get_node("Player_HealthBar").value = health
+		get_parent().get_node("Player_HealthBar").value = 100 * health / MAX_HEALTH
 	elif TYPE == "ENEMY":
-		get_node("HealthBar").value = health
+		get_node("HealthBar").value = 100 * health / MAX_HEALTH
