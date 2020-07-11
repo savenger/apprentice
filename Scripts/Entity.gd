@@ -58,7 +58,7 @@ func damage_loop():
 				instance_scene(preload("res://Scenes/Potion.tscn"))
 			# instance_scene(preload("res://Scenes/EnemyDeath.tscn"))
 			queue_free()
-	for area in $hitbox.get_overlapping_areas():
+	for area in $Hitbox.get_overlapping_areas():
 		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
 			health -= body.get("DAMAGE")

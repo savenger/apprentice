@@ -7,6 +7,7 @@ func _ready():
 		var name = get_tileset().tile_get_name(get_cell(tile.x, tile.y))
 		var node = load(str('res://Scenes/', name, '.tscn')).instance()
 		node.global_position = tile * size + offset
-		node.set_physics_process(true)
 		get_parent().call_deferred("add_child", node)
+		print("Settings ", name, " to set_physics_process(true)")
+		node.set_physics_process(true)
 	queue_free()
