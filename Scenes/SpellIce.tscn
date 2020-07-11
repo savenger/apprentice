@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/EnemySpell.gd" type="Script" id=1]
-[ext_resource path="res://Assets/spellFire.png" type="Texture" id=2]
+[ext_resource path="res://Assets/spellIce.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/SpellIce.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
@@ -9,11 +9,12 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 15.0592
 
-[node name="EnemySpell" type="RigidBody2D"]
+[node name="SpellIce" type="RigidBody2D"]
+collision_layer = 2147483649
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -23,6 +24,6 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="spellIce" type="Sprite" parent="."]
+texture = ExtResource( 1 )
 [connection signal="body_entered" from="." to="." method="_on_Spell_body_entered"]
