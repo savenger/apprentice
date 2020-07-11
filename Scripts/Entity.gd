@@ -33,6 +33,31 @@ func movement_loop():
 		move_and_slide(motion, Vector2(0, 0))
 
 func sprite_dir_loop():
+	if move_dir.x > 0 and move_dir.y > 0:
+		# down right
+		if move_dir.x > move_dir.y:
+			sprite_dir = "right"
+		else:
+			sprite_dir = "down"
+	elif move_dir.x > 0 and move_dir.y < 0:
+		# up right
+		if move_dir.x > -1 * move_dir.y:
+			sprite_dir = "right"
+		else:
+			sprite_dir = "up"
+	elif move_dir.x < 0 and move_dir.y < 0:
+		# up left
+		if -1 * move_dir.x > -1 * move_dir.y:
+			sprite_dir = "left"
+		else:
+			sprite_dir = "up"
+	elif move_dir.x < 0 and move_dir.y > 0:
+		# down left
+		if -1 * move_dir.x > move_dir.y:
+			sprite_dir = "left"
+		else:
+			sprite_dir = "down"
+		
 	match move_dir:
 		dir.left:
 			sprite_dir = "left"
