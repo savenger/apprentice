@@ -7,9 +7,8 @@ var score = 0
 
 var enemy_ice = preload("res://Scenes/EnemyIce.tscn")
 var enemy_fire = preload("res://Scenes/EnemyFire.tscn")
-# TODO:
-# var enemy_earth = preload("res://Scenes/EnemyIce.tscn")
-# var enemy_wind = preload("res://Scenes/EnemyFire.tscn")
+var enemy_earth = preload("res://Scenes/EnemyEarth.tscn")
+var enemy_wind = preload("res://Scenes/EnemyWind.tscn")
 
 func _process(delta):
 	var enemies = 0
@@ -25,13 +24,9 @@ func _process(delta):
 		elif enemy_type == elements.Ice:
 			enemy = enemy_ice.instance()
 		elif enemy_type == elements.Earth:
-			# TODO:
-			# enemy = enemy_earth.instance()
-			enemy = enemy_fire.instance()
+			enemy = enemy_earth.instance()
 		elif enemy_type == elements.Wind:
-			# TODO:
-			# enemy = enemy_wind.instance()
-			enemy = enemy_ice.instance()
+			enemy = enemy_wind.instance()
 		enemy.position.x = rand_range(BORDER, win_size.x - BORDER)
 		enemy.position.y = rand_range(BORDER, win_size.y - BORDER)
 		add_child(enemy)
