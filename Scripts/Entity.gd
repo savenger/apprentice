@@ -1,5 +1,20 @@
 extends KinematicBody2D
 
+
+enum ELEMENTS {
+	Fire,
+	Ice,
+	Earth,
+	Wind
+}
+
+var COUNTER_ELEMENTS = {
+	ELEMENTS.Fire: ELEMENTS.Ice,
+	ELEMENTS.Ice: ELEMENTS.Fire,
+	ELEMENTS.Earth: ELEMENTS.Wind,
+	ELEMENTS.Wind: ELEMENTS.Earth
+}
+
 var MAX_HEALTH = 100
 var SPEED
 var TYPE
@@ -69,7 +84,12 @@ func damage_loop():
 	for area in $Hitbox.get_overlapping_areas():
 		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
-			update_health(health - body.get("DAMAGE"))
+			var multiplier = 1
+			if body.get("ELEMENT") == COUNTER_ELEMENTS[get("ELEMENT")]:
+				multiplier = 2
+			elif body.get("ELEMENT") == get("ELEMENT"):
+				multiplier = -1
+			update_health(health - multiplier * body.get("DAMAGE"))
 			hit_stun = 10
 			knock_dir = global_transform.origin - body.global_transform.origin
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 const BORDER = 24
-var MAX_ENEMIES = 5
+var MAX_ENEMIES = 3
 
 var enemy_class = preload("res://Scenes/EnemyFire.tscn")
 
