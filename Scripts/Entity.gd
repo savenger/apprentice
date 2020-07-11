@@ -85,10 +85,11 @@ func damage_loop():
 		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
 			var multiplier = 1
-			if body.get("ELEMENT") == COUNTER_ELEMENTS[get("ELEMENT")]:
-				multiplier = 2
-			elif body.get("ELEMENT") == get("ELEMENT"):
-				multiplier = -1
+			if TYPE != "PLAYER":
+				if body.get("ELEMENT") == COUNTER_ELEMENTS[get("ELEMENT")]:
+					multiplier = 2
+				elif body.get("ELEMENT") == get("ELEMENT"):
+					multiplier = -1
 			update_health(health - multiplier * body.get("DAMAGE"))
 			hit_stun = 10
 			knock_dir = global_transform.origin - body.global_transform.origin
