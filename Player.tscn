@@ -14,3 +14,8 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="turnAxis" type="Position2D" parent="."]
+
+[node name="viewDir" type="Position2D" parent="turnAxis"]
+position = Vector2( 64, 0 )

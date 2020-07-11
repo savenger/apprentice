@@ -5,7 +5,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[node name="Enemy-fire" type="KinematicBody2D"]
+[node name="Enemy-fire" type="RigidBody2D"]
+gravity_scale = 0.0
 
 [node name="enemy" type="Sprite" parent="."]
 texture = ExtResource( 1 )
