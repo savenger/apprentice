@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sounds/3-3_base.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Sounds/3-3_guitar.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scripts/Soundsystem.gd" type="Script" id=3]
+
+[node name="Soundsystem" type="AudioStreamPlayer"]
+script = ExtResource( 3 )
+
+[node name="ASPlayer_Base" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+bus = "Music"
+
+[node name="ASPlayer_Solo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Music"
+
+[node name="ASPlayer_Random" type="AudioStreamPlayer" parent="."]
+bus = "Music"
