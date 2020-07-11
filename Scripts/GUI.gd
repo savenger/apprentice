@@ -35,3 +35,7 @@ func updateMana(newMana):
 
 func updateScore(newScore):
 	get_node("MarginContainer_HUD/VBoxContainer/CenterContainer/HBoxContainer/Label_Score").text = str(newScore)
+
+
+func _on_Button_Quit_pressed():
+	get_tree().quit()

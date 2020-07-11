@@ -133,46 +133,46 @@ __meta__ = {
 }
 
 [node name="Label_PauseMenu" type="Label" parent="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer"]
-margin_right = 80.0
-margin_bottom = 24.0
+margin_right = 196.0
+margin_bottom = 72.0
 custom_fonts/font = ExtResource( 2 )
 text = "Pause"
 
 [node name="HSplitContainer" type="HBoxContainer" parent="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer"]
-margin_top = 29.0
-margin_right = 80.0
-margin_bottom = 127.0
+margin_top = 77.0
+margin_right = 196.0
+margin_bottom = 319.0
 custom_constants/separation = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer/HSplitContainer"]
-margin_right = 65.0
-margin_bottom = 98.0
+margin_right = 181.0
+margin_bottom = 242.0
 
 [node name="Button_Resume" type="Button" parent="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
-margin_right = 65.0
-margin_bottom = 30.0
+margin_right = 181.0
+margin_bottom = 78.0
 custom_fonts/font = ExtResource( 2 )
 text = "Resume"
 script = SubResource( 1 )
 
 [node name="Button_Suicide" type="Button" parent="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
-margin_top = 34.0
-margin_right = 65.0
-margin_bottom = 64.0
+margin_top = 82.0
+margin_right = 181.0
+margin_bottom = 160.0
 custom_fonts/font = ExtResource( 2 )
 text = "Suicide"
 
 [node name="Button_Quit" type="Button" parent="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
-margin_top = 68.0
-margin_right = 65.0
-margin_bottom = 98.0
+margin_top = 164.0
+margin_right = 181.0
+margin_bottom = 242.0
 custom_fonts/font = ExtResource( 2 )
-text = "Resume"
+text = "Quit"
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer/HSplitContainer"]
-margin_left = 70.0
-margin_right = 80.0
-margin_bottom = 98.0
+margin_left = 186.0
+margin_right = 196.0
+margin_bottom = 242.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 5
@@ -184,7 +184,7 @@ custom_constants/margin_bottom = 5
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 5.0
-margin_bottom = 93.0
+margin_bottom = 237.0
 text = "yccccfacccccccc
 asdddddd
 SDAAA"
@@ -224,3 +224,4 @@ __meta__ = {
 }
 [connection signal="pressed" from="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/Button_Resume" to="." method="_on_Button_Resume_pressed"]
 [connection signal="pressed" from="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/Button_Suicide" to="." method="_on_Button_Suicide_pressed"]
+[connection signal="pressed" from="CenterContainer_Pause/CenterContainer/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/Button_Quit" to="." method="_on_Button_Quit_pressed"]
