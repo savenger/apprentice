@@ -17,10 +17,7 @@ func _process(delta):
 		if node.name.find("Enemy") == 0 or node.name.find("Enemy") == 1 and node.name.find("Tile") == -1 and node.name.find("Spell") == -1:
 			enemies += 1
 		elif node.name.find("Portal") >= 0:
-			print("ROFL")
-			print(node.get("supported_monsters"))
 			supported_monsters += node.get("supported_monsters")
-	print(supported_monsters)
 	if enemies < min(supported_monsters, MAX_ENEMIES):
 		var enemy
 		var enemy_type = randi() % 4

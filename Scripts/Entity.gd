@@ -85,12 +85,14 @@ func damage_loop():
 					instance_scene(preload("res://Scenes/Potion.tscn"))
 				# instance_scene(preload("res://Scenes/EnemyDeath.tscn"))
 				queue_free()
+			elif TYPE == "PORTAL":
+				pass
 	for area in $Hitbox.get_overlapping_areas():
 		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
 			var multiplier = 1
 			knock_multiplier = 1
-			if TYPE != "PLAYER":
+			if TYPE == "ENEMY":
 				if body.get("ELEMENT") == elements.COUNTER_ELEMENTS[get("ELEMENT")]:
 					multiplier = 2
 				elif body.get("ELEMENT") == get("ELEMENT"):
