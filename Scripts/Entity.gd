@@ -90,6 +90,9 @@ func damage_loop():
 					multiplier = 2
 				elif body.get("ELEMENT") == get("ELEMENT"):
 					multiplier = -1
+			else:
+				if body.name == "Spell":
+					pass
 			update_health(health - multiplier * body.get("DAMAGE"))
 			hit_stun = 10
 			knock_dir = global_transform.origin - body.global_transform.origin
