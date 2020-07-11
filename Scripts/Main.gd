@@ -1,8 +1,7 @@
 extends Node2D
 
 const BORDER = 24
-var MAX_ENEMIES = 3
-var portal_open = true
+var MAX_ENEMIES = 4
 var score = 0
 
 var enemy_ice = preload("res://Scenes/EnemyIce.tscn")
@@ -11,12 +10,18 @@ var enemy_earth = preload("res://Scenes/EnemyEarth.tscn")
 var enemy_wind = preload("res://Scenes/EnemyWind.tscn")
 
 func _process(delta):
+	var supported_monsters = 0
 	var enemies = 0
 	var win_size = OS.get_window_size()
 	for node in get_children():
 		if node.name.find("Enemy") == 0 or node.name.find("Enemy") == 1 and node.name.find("Tile") == -1 and node.name.find("Spell") == -1:
 			enemies += 1
-	if enemies < MAX_ENEMIES and portal_open:
+		elif node.name.find("Portal") >= 0:
+			print("ROFL")
+			print(node.get("supported_monsters"))
+			supported_monsters += node.get("supported_monsters")
+	print(supported_monsters)
+	if enemies < min(supported_monsters, MAX_ENEMIES):
 		var enemy
 		var enemy_type = randi() % 4
 		if enemy_type == elements.Fire:
