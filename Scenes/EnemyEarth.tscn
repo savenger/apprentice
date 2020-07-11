@@ -81,6 +81,7 @@ tracks/0/keys = {
 }
 
 [node name="EnemyEarth" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
@@ -90,7 +91,6 @@ position = Vector2( 9.17889, -4.30475 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 10
-frame = 10
 region_enabled = true
 region_rect = Rect2( -5.81232, 109.659, 1685.88, 586.195 )
 
