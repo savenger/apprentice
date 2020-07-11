@@ -62,7 +62,7 @@ func damage_loop():
 				get_tree().reload_current_scene()
 			elif TYPE == "ENEMY":
 				get_parent().score += 1
-				get_node("GUI").updateScore(get_parent().score)
+				get_parent().get_node("GUI").updateScore(get_parent().score)
 				var drop = randi() % 3
 				if drop == 0:
 					instance_scene(preload("res://Scenes/Potion.tscn"))

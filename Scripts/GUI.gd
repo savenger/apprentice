@@ -34,4 +34,4 @@ func updateMana(newMana):
 	get_node("MarginContainer_HUD/VBoxContainer/HBoxContainer/ProgressBar_Mana").value = newMana
 
 func updateScore(newScore):
-	get_node("MarginContainer_HUD/VBoxContainer/CenterContainer/HBoxContainer/Label_Score").text = newScore
+	get_node("MarginContainer_HUD/VBoxContainer/CenterContainer/HBoxContainer/Label_Score").text = str(newScore)
