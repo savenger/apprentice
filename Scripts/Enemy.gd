@@ -15,6 +15,18 @@ func attack_loop():
 	if randi() % 100 == 1:
 		var spell_instance = spell.instance()
 		spell_instance.ELEMENT = ELEMENT
+		var el = "Fire"
+		match spell_instance.ELEMENT:
+			elements.Fire:
+				el = "Fire"
+			elements.Ice:
+				el = "Ice"
+			elements.Earth:
+				el = "Earth"
+			elements.Wind:
+				el = "Wind"
+		var img_path = "res://Assets/spell" + el + ".png"
+		spell_instance.get_node("Sprite").texture = load(img_path)
 		var player = get_node("../Player")
 		get_node("Origin").rotation = get_angle_to(player.global_position)
 		spell_instance.position = get_node("Origin/Aim").get_global_position()
