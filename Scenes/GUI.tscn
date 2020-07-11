@@ -22,9 +22,8 @@ __meta__ = {
 }
 
 [node name="MarginContainer_HUD" type="MarginContainer" parent="."]
-anchor_right = 1.0
-margin_right = 1.0
-margin_bottom = 56.0
+anchor_right = 1.001
+anchor_bottom = 0.129
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 10
@@ -37,21 +36,21 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer_HUD"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1015.0
-margin_bottom = 56.0
+margin_right = 1911.0
+margin_bottom = 139.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer_HUD/VBoxContainer"]
-margin_right = 1005.0
-margin_bottom = 17.0
+margin_right = 1901.0
+margin_bottom = 52.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ProgressBar_HP" type="ProgressBar" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer"]
-margin_right = 500.0
-margin_bottom = 17.0
+margin_right = 948.0
+margin_bottom = 52.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
@@ -59,9 +58,9 @@ value = 50.0
 percent_visible = false
 
 [node name="ProgressBar_Mana" type="ProgressBar" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer"]
-margin_left = 504.0
-margin_right = 1005.0
-margin_bottom = 17.0
+margin_left = 952.0
+margin_right = 1901.0
+margin_bottom = 52.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 4 )
@@ -69,25 +68,25 @@ value = 50.0
 percent_visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer_HUD/VBoxContainer"]
-margin_top = 22.0
-margin_right = 1005.0
-margin_bottom = 46.0
+margin_top = 57.0
+margin_right = 1901.0
+margin_bottom = 129.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer_HUD/VBoxContainer/CenterContainer"]
-margin_left = 403.0
-margin_right = 602.0
-margin_bottom = 24.0
+margin_left = 638.0
+margin_right = 1263.0
+margin_bottom = 72.0
 
 [node name="Label_SoreLabel" type="Label" parent="MarginContainer_HUD/VBoxContainer/CenterContainer/HBoxContainer"]
-margin_right = 43.0
-margin_bottom = 24.0
+margin_right = 138.0
+margin_bottom = 72.0
 custom_fonts/font = ExtResource( 2 )
 text = "Score:"
 
 [node name="Label_Score" type="Label" parent="MarginContainer_HUD/VBoxContainer/CenterContainer/HBoxContainer"]
-margin_left = 47.0
-margin_right = 199.0
-margin_bottom = 24.0
+margin_left = 142.0
+margin_right = 625.0
+margin_bottom = 72.0
 custom_fonts/font = ExtResource( 2 )
 text = "HERE BE NUMBERS"
 
@@ -111,10 +110,10 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer_Pause/CenterContainer"]
-margin_left = 467.0
-margin_top = 231.0
-margin_right = 557.0
-margin_bottom = 368.0
+margin_left = 900.0
+margin_top = 447.0
+margin_right = 1020.0
+margin_bottom = 632.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -126,8 +125,8 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer_Pause/CenterContainer/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 85.0
-margin_bottom = 132.0
+margin_right = 115.0
+margin_bottom = 180.0
 custom_constants/separation = 5
 __meta__ = {
 "_edit_use_anchors_": false
@@ -211,10 +210,10 @@ __meta__ = {
 }
 
 [node name="Label_Dead" type="Label" parent="ColorRect_Dead/CenterContainer_DeathScreen"]
-margin_left = 489.0
-margin_top = 288.0
-margin_right = 534.0
-margin_bottom = 312.0
+margin_left = 925.0
+margin_top = 522.0
+margin_right = 995.0
+margin_bottom = 558.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.807843, 0, 0, 1 )
 text = "u dead"
