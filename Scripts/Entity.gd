@@ -49,38 +49,33 @@ func anim_switch(animation):
 		$AnimationPlayer.play(new_anim)
 
 func damage_loop():
-	if TYPE == "PLAYER":
-		health = min(MAX_HEALTH, health)
-		if hit_stun > 0:
-			hit_stun -= 1
-			#TODO $Sprite.texture = texture_hurt
-		#if health <= 0:
-			#TODO game over
-		for area in $Hitbox.get_overlapping_areas():
-			var body = area.get_parent()
-			if hit_stun == 0 and body.get("DAMAGE") != null:
-				health -= body.get("DAMAGE")
-				hit_stun = 60
-				print(str(health) + "hp") #debug
-	elif TYPE == "ENEMY":
-		health = min(MAX_HEALTH, health)
-		if hit_stun > 0:
-			hit_stun -= 1
-			$Sprite.texture = texture_hurt
-		else:
-			$Sprite.texture = texture_default
-			if health <= 0:
+	health = min(MAX_HEALTH, health)
+	if hit_stun > 0:
+		hit_stun -= 1
+		#$Sprite.texture = texture_hurt
+	else:
+		#$Sprite.texture = texture_default
+		if health <= 0:
+			if TYPE == "PLAYER":
+				#game_over
+				print("game over")
+				get_tree().reload_current_scene()
+			elif TYPE == "ENEMY":
 				var drop = randi() % 3
 				if drop == 0:
 					instance_scene(preload("res://Scenes/Potion.tscn"))
 				# instance_scene(preload("res://Scenes/EnemyDeath.tscn"))
 				queue_free()
-		for area in $Hitbox.get_overlapping_areas():
-			var body = area.get_parent()
-			if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
-				health -= body.get("DAMAGE")
-				hit_stun = 10
-				knock_dir = global_transform.origin - body.global_transform.origin
+	for area in $Hitbox.get_overlapping_areas():
+		var body = area.get_parent()
+		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
+			health -= body.get("DAMAGE")
+			hit_stun = 10
+			knock_dir = global_transform.origin - body.global_transform.origin
+			if TYPE == "PLAYER":
+				print(str(health) + "hp") #debug
+			if TYPE == "ENEMY":
+				get_node("HealthBar").value = health
 
 func use_item(item):
 	var new_item = item.instance()
