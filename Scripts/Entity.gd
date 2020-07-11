@@ -119,5 +119,5 @@ func update_health(value):
 	health = clamp(value, 0, MAX_HEALTH)
 	if TYPE == "PLAYER":
 		get_parent().get_node("GUI").updateHealth( 100 * health / MAX_HEALTH)
-	elif TYPE == "ENEMY":
+	elif TYPE == "ENEMY" or TYPE == "PORTAL":
 		get_node("HealthBar").value = 100 * health / MAX_HEALTH

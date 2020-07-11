@@ -15,7 +15,7 @@ func _init():
 	health = MAX_HEALTH
 
 func attack_loop():
-	if randi() % 100 == 1:
+	if randi() % (300) == 1:
 		var spell_instance
 		var el = "Fire"
 		match ELEMENT:

@@ -14,7 +14,7 @@ var supported_monsters = MAX_SUPPORTED_MONSTERS
 func active_set(new_value):
 	active = new_value
 	if active:
-		health = MAX_HEALTH
+		update_health(MAX_HEALTH)
 		$portal.texture = load("res://Assets/Graphics/portal.png")
 		supported_monsters = MAX_SUPPORTED_MONSTERS
 	else:
