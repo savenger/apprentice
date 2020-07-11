@@ -17,7 +17,7 @@ polygon = PoolVector2Array( 4.15117, -55.3468, 18.6472, 9.8499, 26.6502, 75.791,
 [node name="Origin" type="Position2D" parent="."]
 
 [node name="Aim" type="Position2D" parent="Origin"]
-position = Vector2( 64, 0 )
+position = Vector2( 138.836, 0 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 
