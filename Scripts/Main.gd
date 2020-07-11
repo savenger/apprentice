@@ -5,9 +5,6 @@ var MAX_ENEMIES = 3
 
 var enemy_class = preload("res://Scenes/EnemyFire.tscn")
 
-func _ready():
-	pass
-
 func _process(delta):
 	var enemies = 0
 	var win_size = OS.get_window_size()

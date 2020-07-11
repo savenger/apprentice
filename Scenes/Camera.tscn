@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 511.003, 299.99 )
+extents = Vector2( 960, 536 )
 
 [node name="Camera2D" type="Camera2D"]
 
