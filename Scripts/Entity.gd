@@ -69,13 +69,9 @@ func damage_loop():
 	for area in $Hitbox.get_overlapping_areas():
 		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
-			health -= body.get("DAMAGE")
+			update_health(health - body.get("DAMAGE"))
 			hit_stun = 10
 			knock_dir = global_transform.origin - body.global_transform.origin
-			if TYPE == "PLAYER":
-				print(str(health) + "hp") #debug
-			if TYPE == "ENEMY":
-				get_node("HealthBar").value = health
 
 func use_item(item):
 	var new_item = item.instance()
@@ -88,3 +84,10 @@ func instance_scene(scene):
 	var new_scene = scene.instance()
 	new_scene.global_position = global_position
 	get_parent().add_child(new_scene)
+
+func update_health(value):
+	health = clamp(value, 0, MAX_HEALTH)
+	if TYPE == "PLAYER":
+		get_parent().get_node("Player_HealthBar").value = health
+	elif TYPE == "ENEMY":
+		get_node("HealthBar").value = health
