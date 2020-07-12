@@ -84,6 +84,7 @@ func damage_loop():
 					multiplier = 2
 				elif body.get("ELEMENT") == get("ELEMENT"):
 					multiplier = -1
+					set("charged", true)
 				if body.get("ELEMENT") == global.ELEMENTS.Wind:
 					knock_multiplier = 3
 			if TYPE == "PORTAL":
