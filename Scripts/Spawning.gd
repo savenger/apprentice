@@ -1,21 +1,17 @@
 extends Particles2D
 
 var enemy_type
+var origin
 const BORDER = 24
 const MAX_PARTICLES = 1000
 const MIN_PARTICLES = 100
 
-const MIN_X = 64
-const MAX_X = 1792
-const MIN_Y = 128
-const MAX_Y = 768
+const MIN_X = 256
+const MAX_X = 1664
+const MIN_Y = 256
+const MAX_Y = 640
+const spawn_range = 150
 
-var spawn_areas = {
-	global.ELEMENTS.Fire: [],
-	global.ELEMENTS.Ice: [],
-	global.ELEMENTS.Earth: [],
-	global.ELEMENTS.Wind: []
-}
 var win_size = OS.get_window_size()
 var enemy_ice = preload("res://Scenes/EnemyIce.tscn")
 var enemy_fire = preload("res://Scenes/EnemyFire.tscn")
@@ -24,9 +20,15 @@ var enemy_wind = preload("res://Scenes/EnemyWind.tscn")
 
 func _ready():
 	var rng = RandomNumberGenerator.new()
+	for area in $Hitbox.get_overlapping_areas():
+		print(area)
 	rng.randomize()
-	global_position.x = rng.randi_range(MIN_X, MAX_X)
-	global_position.y = rng.randi_range(MIN_Y, MAX_Y)
+	var upper_x = origin.global_position.x + spawn_range
+	var lower_x = origin.global_position.x - spawn_range
+	var upper_y = origin.global_position.y + spawn_range
+	var lower_y = origin.global_position.y - spawn_range
+	global_position.x = rng.randi_range(max(lower_x, MIN_X), min(upper_x, MAX_X))
+	global_position.y = rng.randi_range(max(lower_y, MIN_Y), min(upper_y, MAX_Y))
 
 func _process(delta):
 	# more particles every second (max 5 seconds) (from 100 to 1000)
