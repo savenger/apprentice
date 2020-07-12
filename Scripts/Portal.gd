@@ -1,24 +1,37 @@
 extends "res://Scripts/Entity.gd"
 
+var ELEMENT
 
 func _init():
-	MAX_HEALTH = 100
+	MAX_HEALTH = 200
 	health = MAX_HEALTH
 	SPEED = 0
 	TYPE = "PORTAL"
+	ELEMENT = elements.Fire
 
 var active setget active_set
 const MAX_SUPPORTED_MONSTERS = 2
 var supported_monsters = MAX_SUPPORTED_MONSTERS
 
+func _ready():
+	match ELEMENT:
+		elements.Fire:
+			$portals.frame = 4
+		elements.Ice:
+			$portals.frame = 5
+		elements.Earth:
+			$portals.frame = 6
+		elements.Wind:
+			$portals.frame = 7
+
 func active_set(new_value):
 	active = new_value
 	if active:
 		update_health(MAX_HEALTH)
-		$portal.texture = load("res://Assets/Graphics/portal.png")
+		$portals.frame = ($portals.frame + 4) % 8
 		supported_monsters = MAX_SUPPORTED_MONSTERS
 	else:
-		$portal.texture = load("res://Assets/Graphics/portal_inactive.png")
+		$portals.frame = ($portals.frame + 4) % 8
 		supported_monsters = 0
 
 func _on_Timer_timeout():

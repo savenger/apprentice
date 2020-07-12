@@ -86,6 +86,11 @@ func damage_loop():
 					multiplier = -1
 				if body.get("ELEMENT") == elements.Wind:
 					knock_multiplier = 3
+			if TYPE == "PORTAL":
+				if body.get("ELEMENT") == elements.COUNTER_ELEMENTS[get("ELEMENT")]:
+					multiplier = 2
+				elif body.get("ELEMENT") == get("ELEMENT"):
+					multiplier = -1
 			update_health(health - multiplier * body.get("DAMAGE"))
 			hit_stun = 5
 			knock_dir = global_transform.origin - body.global_transform.origin
