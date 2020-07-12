@@ -77,8 +77,10 @@ func select_spell_loop():
 			next_attack = elements.Earth
 		elif Input.is_action_just_pressed("use_spell_4"):
 			next_attack = elements.Wind
-		elif Input.is_action_just_pressed("next_spell"):
+		elif Input.is_action_just_released("next_spell"):
 			next_attack = (next_attack + 1) % 4
+		elif Input.is_action_just_released("previous_spell"):
+			next_attack = (next_attack - 1) % 4
 
 func update_energy(value):
 	energy = clamp(value, 0, MAX_ENERGY)
