@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var ELEMENT
 var SPEED = 15
-var DAMAGE
+var DAMAGE = 10
 var ORIGIN
 
 func _ready():
