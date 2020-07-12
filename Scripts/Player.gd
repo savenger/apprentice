@@ -80,7 +80,7 @@ func select_spell_loop():
 		elif Input.is_action_just_released("next_spell"):
 			next_attack = (next_attack + 1) % 4
 		elif Input.is_action_just_released("previous_spell"):
-			next_attack = (next_attack - 1) % 4
+			next_attack = (next_attack + 3) % 4
 
 func update_energy(value):
 	energy = clamp(value, 0, MAX_ENERGY)
