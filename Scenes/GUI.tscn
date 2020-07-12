@@ -32,8 +32,9 @@ __meta__ = {
 anchor_right = 1.001
 anchor_bottom = 0.077
 margin_left = 5.0
+margin_top = -6.0
 margin_right = 0.0799561
-margin_bottom = 2.83999
+margin_bottom = -3.16001
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 25
@@ -44,29 +45,31 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer_HUD"]
+anchor_top = -0.104651
+anchor_bottom = -0.104651
 margin_left = 25.0
 margin_top = 20.0
 margin_right = 1892.0
-margin_bottom = 86.0
+margin_bottom = 85.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer_HUD/VBoxContainer"]
 margin_right = 1867.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer"]
 margin_right = 1867.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer/HBoxContainer"]
 margin_right = 464.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -90,14 +93,14 @@ percent_visible = false
 [node name="Control2" type="Control" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 53.0
 margin_right = 464.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer/HBoxContainer"]
 margin_left = 468.0
 margin_right = 1397.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
@@ -133,7 +136,7 @@ valign = 1
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer/HBoxContainer"]
 margin_left = 1401.0
 margin_right = 1867.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -157,7 +160,7 @@ percent_visible = false
 [node name="Control2" type="Control" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 53.0
 margin_right = 466.0
-margin_bottom = 66.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
