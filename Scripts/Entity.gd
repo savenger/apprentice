@@ -9,7 +9,7 @@ var health
 var move_dir = Vector2(0, 0)
 var knock_dir = Vector2(0, 0)
 var knock_multiplier = 1
-var sprite_dir = "down"
+var sprite_dir = "stop"
 
 var hit_stun = 0
 var texture_default = null
@@ -34,33 +34,46 @@ func movement_loop():
 		move_and_slide(motion, Vector2(0, 0))
 
 func sprite_dir_loop():
-	if move_dir.x > 0 and move_dir.y > 0:
-		# down right
-		if move_dir.x > move_dir.y:
+	if TYPE == "PLAYER":
+		if move_dir.x > 0:
 			sprite_dir = "right"
-		else:
-			sprite_dir = "down"
-	elif move_dir.x > 0 and move_dir.y < 0:
-		# up right
-		if move_dir.x > -1 * move_dir.y:
-			sprite_dir = "right"
-		else:
-			sprite_dir = "up"
-	elif move_dir.x < 0 and move_dir.y < 0:
-		# up left
-		if -1 * move_dir.x > -1 * move_dir.y:
+		elif move_dir.x < 0:
 			sprite_dir = "left"
-		else:
+		elif move_dir.y < 0:
 			sprite_dir = "up"
-	elif move_dir.x < 0 and move_dir.y > 0:
-		# down left
-		if -1 * move_dir.x > move_dir.y:
-			sprite_dir = "left"
-		else:
+		elif move_dir.y > 0:
 			sprite_dir = "down"
+		else:
+			sprite_dir = "stop"
+	else:
+		if move_dir.x > 0 and move_dir.y > 0:
+			# down right
+			if move_dir.x > move_dir.y:
+				sprite_dir = "right"
+			else:
+				sprite_dir = "down"
+		elif move_dir.x > 0 and move_dir.y < 0:
+			# up right
+			if move_dir.x > -1 * move_dir.y:
+				sprite_dir = "right"
+			else:
+				sprite_dir = "up"
+		elif move_dir.x < 0 and move_dir.y < 0:
+			# up left
+			if -1 * move_dir.x > -1 * move_dir.y:
+				sprite_dir = "left"
+			else:
+				sprite_dir = "up"
+		elif move_dir.x < 0 and move_dir.y > 0:
+			# down left
+			if -1 * move_dir.x > move_dir.y:
+				sprite_dir = "left"
+			else:
+				sprite_dir = "down"
 
 func anim_switch(animation):
 	var new_anim = str(animation, sprite_dir)
+	print(new_anim)
 	if $AnimationPlayer:
 		if $AnimationPlayer.current_animation != new_anim:
 			$AnimationPlayer.play(new_anim)
