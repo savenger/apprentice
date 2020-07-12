@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Soundsystem.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Room.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/EnemyFire.tres" type="TileSet" id=4]
 [ext_resource path="res://Scripts/EnemiesFire.gd" type="Script" id=5]
@@ -40,3 +41,5 @@ ELEMENT = 1
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 z_index = -20
+
+[node name="Soundsystem" parent="." instance=ExtResource( 2 )]
