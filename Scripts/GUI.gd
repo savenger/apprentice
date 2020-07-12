@@ -89,6 +89,7 @@ func _on_Button_Menu_pressed():
 
 func _on_Button_Retry_pressed():
 	get_node("ColorRect_Dead").visible = true
-	get_tree().reload_current_scene()
 	unpause()
 	get_tree().paused = false
+	get_tree().reload_current_scene()
+	
