@@ -73,7 +73,6 @@ func sprite_dir_loop():
 
 func anim_switch(animation):
 	var new_anim = str(animation, sprite_dir)
-	print(new_anim)
 	if $AnimationPlayer:
 		if $AnimationPlayer.current_animation != new_anim:
 			$AnimationPlayer.play(new_anim)
