@@ -39,6 +39,7 @@ scale = 3.0
 scale_random = 1.0
 
 [node name="SpellIce" type="RigidBody2D"]
+z_index = -2
 collision_layer = 2147483649
 gravity_scale = 0.0
 contacts_reported = 1

@@ -67,26 +67,13 @@ func anim_switch(animation):
 
 func damage_loop():
 	health = min(MAX_HEALTH, health)
+	if health <= 0:
+		died()
 	if hit_stun > 0:
 		hit_stun -= 1
 		#$Sprite.texture = texture_hurt
-	else:
+	#else:
 		#$Sprite.texture = texture_default
-		if health <= 0:
-			if TYPE == "PLAYER":
-				#game_over
-				print("game over")
-				get_tree().reload_current_scene()
-			elif TYPE == "ENEMY":
-				get_parent().score += 1
-				get_parent().get_node("GUI").updateScore(get_parent().score)
-				var drop = randi() % 3
-				if drop == 0:
-					instance_scene(preload("res://Scenes/Potion.tscn"))
-				# instance_scene(preload("res://Scenes/EnemyDeath.tscn"))
-				queue_free()
-			elif TYPE == "PORTAL":
-				pass
 	for area in $Hitbox.get_overlapping_areas():
 		var body = area.get_parent()
 		if hit_stun == 0 and body.get("DAMAGE") != null and body.get("TYPE") != TYPE:
@@ -121,3 +108,20 @@ func update_health(value):
 		get_parent().get_node("GUI").updateHealth( 100 * health / MAX_HEALTH)
 	elif TYPE == "ENEMY" or TYPE == "PORTAL":
 		get_node("HealthBar").value = 100 * health / MAX_HEALTH
+
+func died():
+	if TYPE == "PLAYER":
+		#game_over
+		print("game over")
+		get_parent().get_node("GUI").death()
+		get_tree().reload_current_scene()
+	elif TYPE == "ENEMY":
+		get_parent().score += 1
+		get_parent().get_node("GUI").updateScore(get_parent().score)
+		var drop = randi() % 3
+		if drop == 0:
+			instance_scene(preload("res://Scenes/Potion.tscn"))
+		# instance_scene(preload("res://Scenes/EnemyDeath.tscn"))
+		queue_free()
+	elif TYPE == "PORTAL":
+		pass

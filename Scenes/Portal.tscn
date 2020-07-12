@@ -12,6 +12,7 @@ extents = Vector2( 56, 77 )
 extents = Vector2( 55.5, 74 )
 
 [node name="Portal" type="KinematicBody2D"]
+z_index = -11
 script = ExtResource( 2 )
 
 [node name="portal" type="Sprite" parent="."]

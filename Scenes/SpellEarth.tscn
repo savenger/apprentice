@@ -10,6 +10,7 @@ radius = 16.0
 radius = 15.0592
 
 [node name="SpellEarth" type="RigidBody2D"]
+z_index = -2
 collision_layer = 2147483649
 gravity_scale = 0.0
 contacts_reported = 1

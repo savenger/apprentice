@@ -2,7 +2,7 @@ extends "res://Scripts/Spell.gd"
 
 func _init():
 	SPEED = 800
-	DAMAGE = 10
+	DAMAGE = 30
 	ELEMENT = elements.Fire
 	ORIGIN = "Player"
 

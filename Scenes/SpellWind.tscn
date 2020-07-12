@@ -22,6 +22,7 @@ frame_2/texture = ExtResource( 4 )
 frame_2/delay_sec = 0.0
 
 [node name="SpellWind" type="RigidBody2D"]
+z_index = -2
 collision_layer = 2147483649
 gravity_scale = 0.0
 contacts_reported = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Fondamento_Regular.tres" type="DynamicFont" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Graphics/Projectiles/rock.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Graphics/Projectiles/ice_0.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Graphics/Projectiles/fire_0.png" type="Texture" id=8]
+[ext_resource path="res://Assets/UI/canvas.png" type="Texture" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Button
@@ -28,6 +29,9 @@ __meta__ = {
 [node name="MarginContainer_HUD" type="MarginContainer" parent="."]
 anchor_right = 1.001
 anchor_bottom = 0.129
+margin_left = 128.0
+margin_right = -129.92
+margin_bottom = -27.32
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 10
@@ -40,21 +44,21 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer_HUD"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1911.0
-margin_bottom = 139.0
+margin_right = 1654.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer_HUD/VBoxContainer"]
-margin_right = 1901.0
-margin_bottom = 52.0
+margin_right = 1644.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ProgressBar_HP" type="ProgressBar" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer"]
-margin_right = 948.0
-margin_bottom = 52.0
+margin_right = 820.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
@@ -62,9 +66,9 @@ value = 100.0
 percent_visible = false
 
 [node name="ProgressBar_Mana" type="ProgressBar" parent="MarginContainer_HUD/VBoxContainer/HBoxContainer"]
-margin_left = 952.0
-margin_right = 1901.0
-margin_bottom = 52.0
+margin_left = 824.0
+margin_right = 1644.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 4 )
@@ -72,13 +76,13 @@ value = 100.0
 percent_visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer_HUD/VBoxContainer"]
-margin_top = 57.0
-margin_right = 1901.0
-margin_bottom = 129.0
+margin_top = 30.0
+margin_right = 1644.0
+margin_bottom = 102.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer_HUD/VBoxContainer/CenterContainer"]
-margin_left = 861.0
-margin_right = 1040.0
+margin_left = 732.0
+margin_right = 911.0
 margin_bottom = 72.0
 
 [node name="Label_SoreLabel" type="Label" parent="MarginContainer_HUD/VBoxContainer/CenterContainer/HBoxContainer"]
@@ -350,6 +354,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="IconCanvas" type="TextureRect" parent="Skill Container/HBoxContainer2/HBoxContainer/CenterContainer"]
+margin_left = 32.1734
+margin_top = 77.4282
+margin_right = 132.173
+margin_bottom = 177.428
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CenterContainer2" type="ReferenceRect" parent="Skill Container/HBoxContainer2/HBoxContainer"]
 margin_left = 317.0
 margin_right = 419.0
@@ -395,6 +410,18 @@ margin_top = 7.0
 margin_right = 71.0
 margin_bottom = 71.0
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconCanvas" type="TextureRect" parent="Skill Container/HBoxContainer2/HBoxContainer/CenterContainer2"]
+visible = false
+margin_left = 32.3
+margin_top = 77.0745
+margin_right = 132.3
+margin_bottom = 177.075
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -448,6 +475,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="IconCanvas" type="TextureRect" parent="Skill Container/HBoxContainer2/HBoxContainer/CenterContainer3"]
+visible = false
+margin_left = 32.4267
+margin_top = 77.0745
+margin_right = 132.427
+margin_bottom = 177.075
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CenterContainer4" type="ReferenceRect" parent="Skill Container/HBoxContainer2/HBoxContainer"]
 margin_left = 531.0
 margin_right = 635.0
@@ -493,6 +532,18 @@ margin_top = 7.0
 margin_right = 71.0
 margin_bottom = 71.0
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IconCanvas" type="TextureRect" parent="Skill Container/HBoxContainer2/HBoxContainer/CenterContainer4"]
+visible = false
+margin_left = 32.9069
+margin_top = 77.0745
+margin_right = 132.907
+margin_bottom = 177.075
+rect_scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
