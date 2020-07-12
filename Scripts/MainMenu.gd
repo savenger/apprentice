@@ -28,7 +28,6 @@ func advanceSplashscreen():
 	var i = 0
 	for N in get_node("Splashscreens").get_children():
 		if i == splashscreenIndex:
-			print(N.name)
 			N.visible = true
 		else:
 			N.visible = false

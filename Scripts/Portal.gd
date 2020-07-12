@@ -35,7 +35,6 @@ func active_set(new_value):
 		supported_monsters = 0
 
 func _on_Timer_timeout():
-	print("_on_Timer_timeout()")
 	active_set(true)
 
 func _physics_process(delta):
