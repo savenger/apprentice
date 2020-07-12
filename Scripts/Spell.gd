@@ -10,6 +10,6 @@ func _ready():
 
 func splash():
 	var splash_instance = load("res://Scenes/Splash.tscn").instance()
-	splash_instance.position = get_global_position()
+	splash_instance.global_position = get_global_position()
 	splash_instance.ELEMENT = ELEMENT
 	get_parent().add_child(splash_instance)
