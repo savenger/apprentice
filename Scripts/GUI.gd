@@ -34,13 +34,13 @@ func _on_Button_Suicide_pressed():
 	death()
 
 func updateHealth(newHealth):
-	get_node("MarginContainer_HUD/VBoxContainer/HBoxContainer/ProgressBar_HP").value = newHealth
+	get_node("MarginContainer_HUD/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer/ProgressBar_HP").value = newHealth
 
 func updateMana(newMana):
-	get_node("MarginContainer_HUD/VBoxContainer/HBoxContainer/ProgressBar_Mana").value = newMana
+	get_node("MarginContainer_HUD/VBoxContainer/HBoxContainer/HBoxContainer/VBoxContainer2/ProgressBar_Mana").value = newMana
 
 func updateScore(newScore):
-	get_node("MarginContainer_HUD/VBoxContainer/CenterContainer/HBoxContainer/Label_Score").text = str(newScore)
+	get_node("MarginContainer_HUD/VBoxContainer/HBoxContainer/HBoxContainer/ReferenceRect/CenterContainer/HBoxContainer/Label_Score").text = str(newScore)
 
 func updateActiveSpell(spell):
 	get_node("Skill Container/HBoxContainer2/HBoxContainer/CenterContainer/IconCanvas").visible = false
@@ -74,3 +74,7 @@ func _on_Button_Controls_pressed():
 	
 func close_Controls():
 	get_node("Panel_Controls").visible = false	
+
+
+
+			
