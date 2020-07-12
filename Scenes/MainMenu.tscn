@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Assets/Menu/logo_final.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Menu/credits_normal_1.png" type="Texture" id=2]
@@ -34,6 +34,10 @@
 [ext_resource path="res://Assets/Sounds/3-3_quiet.wav" type="AudioStream" id=32]
 [ext_resource path="res://Assets/Menu/splashscreen_spielwerker.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Menu/splashscreen_technical.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Menu/splashscreen_credits.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Menu/back_button.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Menu/back_button_1.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Menu/back_button-2.png" type="Texture" id=38]
 
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
@@ -195,14 +199,37 @@ texture_normal = SubResource( 7 )
 texture_pressed = ExtResource( 28 )
 texture_hover = SubResource( 8 )
 
-[node name="Node" type="Node" parent="."]
+[node name="Sound" type="Node" parent="."]
 
-[node name="AudioStreamPlayer_Intro" type="AudioStreamPlayer" parent="Node"]
+[node name="AudioStreamPlayer_Intro" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource( 31 )
 autoplay = true
 
-[node name="AudioStreamPlayer_Full" type="AudioStreamPlayer" parent="Node"]
+[node name="AudioStreamPlayer_Full" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource( 32 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1480.0
+margin_bottom = -1040.0
+texture = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton_CreditsBack" type="TextureButton" parent="TextureRect"]
+anchor_left = 0.841
+anchor_top = 0.897
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_normal = ExtResource( 37 )
+texture_pressed = ExtResource( 38 )
+texture_hover = ExtResource( 36 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Splashscreens" type="ColorRect" parent="."]
 visible = false
@@ -245,5 +272,6 @@ wait_time = 2.0
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_NewGame" to="." method="_on_TextureButton_NewGame_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_Credits" to="." method="_on_TextureButton_Credits_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_Exit" to="." method="_on_TextureButton_Exit_pressed"]
-[connection signal="finished" from="Node/AudioStreamPlayer_Intro" to="." method="_on_AudioStreamPlayer_finished"]
-[connection signal="finished" from="Node/AudioStreamPlayer_Full" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="finished" from="Sound/AudioStreamPlayer_Intro" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="finished" from="Sound/AudioStreamPlayer_Full" to="." method="_on_AudioStreamPlayer_finished"]
+[connection signal="pressed" from="TextureRect/TextureButton_CreditsBack" to="." method="_on_TextureButton_CreditsBack_pressed"]

@@ -8,7 +8,7 @@ func _on_TextureButton_Exit_pressed():
 
 
 func _on_TextureButton_Credits_pressed():
-	pass # Replace with function body.
+	get_node("TextureRect").visible = true
 
 
 func _on_TextureButton_NewGame_pressed():
@@ -33,3 +33,7 @@ func advanceSplashscreen():
 	splashscreenIndex += 1
 	if splashscreenIndex <= get_node("Splashscreens").get_child_count():
 		get_node("Timer").start()
+
+
+func _on_TextureButton_CreditsBack_pressed():
+		get_node("TextureRect").visible = false

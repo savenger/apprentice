@@ -14,9 +14,16 @@ func unpause():
 	get_tree().paused = false
 	
 	get_node("CenterContainer_Pause").visible = false
+
+var deathMessages = ["U Dead", "You have died", "Try again", "It was just a scratch!"]
 	
 func death():
+	get_tree().paused = true
 	get_node("ColorRect_Dead").visible = true
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var randomNumber = rng.randf_range(0, deathMessages.size())
+	get_node("ColorRect_Dead/CenterContainer_DeathScreen/VBoxContainer/Label_Dead").text = deathMessages[randomNumber]
 
 func _on_Button_Resume_pressed():
 	unpause()
@@ -65,8 +72,7 @@ func _on_Button_Quit_pressed():
 	get_tree().quit()
 
 
-func _on_Button_pressed():
-	close_Controls()
+
 
 
 func _on_Button_Controls_pressed():
@@ -77,4 +83,5 @@ func close_Controls():
 
 
 
-			
+func _on_Button_Menu_pressed():
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")
