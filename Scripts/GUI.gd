@@ -95,3 +95,7 @@ func _on_Button_Retry_pressed():
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
+
+
+func _on_Button_pressed():
+	close_Controls()

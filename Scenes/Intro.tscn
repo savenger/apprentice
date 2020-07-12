@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Intro.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/new_game_normal_2.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Menu/new_game_hover_0.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Menu/new_game_hover_2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Menu/new_game_hover_1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sounds/3-3_quiet.wav" type="AudioStream" id=9]
 
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
@@ -91,4 +92,8 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
 [connection signal="pressed" from="BtnStart" to="." method="_on_BtnStart_pressed"]
