@@ -170,6 +170,7 @@ process_material = SubResource( 4 )
 texture = ExtResource( 3 )
 
 [node name="Particles2D_Earth" type="Particles2D" parent="Node"]
+visible = false
 amount = 22
 lifetime = 0.3
 explosiveness = 1.0
