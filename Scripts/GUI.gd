@@ -85,3 +85,10 @@ func close_Controls():
 
 func _on_Button_Menu_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+
+
+func _on_Button_Retry_pressed():
+	get_node("ColorRect_Dead").visible = true
+	get_tree().reload_current_scene()
+	unpause()
+	get_tree().paused = false

@@ -6,7 +6,16 @@ var life_timer = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	match ELEMENT:
+		global.ELEMENTS.Ice:
+			get_node("Node/Particles_Ice").visible = true
+		global.ELEMENTS.Fire:
+			get_node("Node/Particles_Fire").visible = true
+		global.ELEMENTS.Earth:
+			get_node("Node/Particles2D_Earth").visible = true
+		global.ELEMENTS.Wind:
+			get_node("Node/Particles2D_Wind").visible = true 
+			
 
 func _process(delta):
 	life_timer -= 1
