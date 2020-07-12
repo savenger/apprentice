@@ -14,8 +14,8 @@ func _ready():
 		global.ELEMENTS.Earth:
 			get_node("Node/Particles2D_Earth").visible = true
 		global.ELEMENTS.Wind:
-			get_node("Node/Particles2D_Wind").visible = true
-	
+			get_node("Node/Particles2D_Wind").visible = true 
+			
 
 func _process(delta):
 	life_timer -= 1
