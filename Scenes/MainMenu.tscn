@@ -208,7 +208,7 @@ autoplay = true
 [node name="AudioStreamPlayer_Full" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource( 32 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TeamMembers" type="TextureRect" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -219,7 +219,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton_CreditsBack" type="TextureButton" parent="TextureRect"]
+[node name="TextureButton_CreditsBack" type="TextureButton" parent="TeamMembers"]
 anchor_left = 0.841
 anchor_top = 0.897
 anchor_right = 1.0
@@ -232,7 +232,6 @@ __meta__ = {
 }
 
 [node name="Splashscreens" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
@@ -240,14 +239,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="Splashscreens"]
+[node name="Spielwerker" type="CenterContainer" parent="Splashscreens"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect_Studio" type="TextureRect" parent="Splashscreens/CenterContainer"]
+[node name="TextureRect_Studio" type="TextureRect" parent="Splashscreens/Spielwerker"]
 margin_left = 627.0
 margin_top = 334.0
 margin_right = 1293.0
@@ -257,11 +256,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect_Tech" type="TextureRect" parent="Splashscreens"]
+[node name="TeamMembers2" type="TextureRect" parent="Splashscreens"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1880.0
-margin_bottom = -1040.0
+texture = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreSplashScreen" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 34 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -269,9 +274,11 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+autostart = true
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_NewGame" to="." method="_on_TextureButton_NewGame_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_Credits" to="." method="_on_TextureButton_Credits_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_Exit" to="." method="_on_TextureButton_Exit_pressed"]
 [connection signal="finished" from="Sound/AudioStreamPlayer_Intro" to="." method="_on_AudioStreamPlayer_finished"]
 [connection signal="finished" from="Sound/AudioStreamPlayer_Full" to="." method="_on_AudioStreamPlayer_finished"]
-[connection signal="pressed" from="TextureRect/TextureButton_CreditsBack" to="." method="_on_TextureButton_CreditsBack_pressed"]
+[connection signal="pressed" from="TeamMembers/TextureButton_CreditsBack" to="." method="_on_TextureButton_CreditsBack_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

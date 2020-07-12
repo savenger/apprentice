@@ -40,7 +40,6 @@ func attack_loop():
 			spell_instance.DAMAGE *= 2
 			spell_instance.set_charged(true)
 			charged = false
-		print(spell_instance.DAMAGE)
 		var player = get_node("../Player")
 		var r = get_angle_to(player.global_position)
 		get_node("Origin").rotation = r

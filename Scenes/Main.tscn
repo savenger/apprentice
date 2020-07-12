@@ -15,7 +15,7 @@
 script = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 272, 208 )
+position = Vector2( 272, 380 )
 
 [node name="EnemyFireTileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -33,11 +33,19 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Portal" parent="." instance=ExtResource( 8 )]
-position = Vector2( 142.099, 857.193 )
+position = Vector2( 184, 168 )
 
 [node name="Portal2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1706.22, 200.998 )
+position = Vector2( 128, 728 )
 ELEMENT = 1
+
+[node name="Portal3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1784, 728 )
+ELEMENT = 2
+
+[node name="Portal4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1776, 136 )
+ELEMENT = 3
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 z_index = -20

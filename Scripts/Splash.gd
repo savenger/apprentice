@@ -1,8 +1,8 @@
 extends Area2D
 
 var ELEMENT
-var DAMAGE = 2
-var life_timer = 20
+var DAMAGE = 1
+var life_timer = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

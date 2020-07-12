@@ -1,6 +1,6 @@
 extends Control
 
-
+var state 
 
 
 func _on_TextureButton_Exit_pressed():
@@ -8,7 +8,7 @@ func _on_TextureButton_Exit_pressed():
 
 
 func _on_TextureButton_Credits_pressed():
-	get_node("TextureRect").visible = true
+	get_node("TeamMembers").visible = true
 
 
 func _on_TextureButton_NewGame_pressed():
@@ -16,24 +16,29 @@ func _on_TextureButton_NewGame_pressed():
 
 
 func _on_AudioStreamPlayer_finished():
-	get_node("Node/AudioStreamPlayer_Full").play()
+	get_node("Sound/AudioStreamPlayer_Full").play()
 
 
 func _on_Timer_timeout():
+	get_node("PreSplashScreen").visible = false
 	advanceSplashscreen()
 	
-var splashscreenIndex = 1
+var splashscreenIndex = 0
 func advanceSplashscreen():
+	var i = 0
 	for N in get_node("Splashscreens").get_children():
-		if N == splashscreenIndex:
+		if i == splashscreenIndex:
 			N.visible = true
 		else:
 			N.visible = false
+		i += 1
 	
 	splashscreenIndex += 1
 	if splashscreenIndex <= get_node("Splashscreens").get_child_count():
 		get_node("Timer").start()
+	else:
+		get_node("Splashscreens").visible = false
 
 
 func _on_TextureButton_CreditsBack_pressed():
-		get_node("TextureRect").visible = false
+		get_node("TeamMembers").visible = false
