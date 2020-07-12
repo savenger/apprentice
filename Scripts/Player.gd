@@ -89,22 +89,24 @@ func update_energy(value):
 func _physics_process(delta):
 	move_dir.x = 0
 	move_dir.y = 0
-	get_node("Sprite").set_flip_h(false)
+#	get_node("Sprite").set_flip_h(false)
 	if Input.is_action_pressed("move_up"):
-		move_dir.y -= 1
-		get_node("Sprite").texture = spr_player_back
+		move_dir.y -= 5
+#		get_node("Sprite").texture = spr_player_back
 	if Input.is_action_pressed("move_down"):
-		get_node("Sprite").texture = spr_player_front
-		move_dir.y += 1
+#		get_node("Sprite").texture = spr_player_front
+		move_dir.y += 5
 	if Input.is_action_pressed("move_left"):
-		get_node("Sprite").texture = spr_player_right
-		get_node("Sprite").set_flip_h(true)
-		move_dir.x -= 1
+#		get_node("Sprite").texture = spr_player_right
+#		get_node("Sprite").set_flip_h(true)
+		move_dir.x -= 5
 	if Input.is_action_pressed("move_right"):
-		get_node("Sprite").texture = spr_player_right
-		move_dir.x += 1
+#		get_node("Sprite").texture = spr_player_right
+		move_dir.x += 5
 	move_dir = move_dir.normalized() * SPEED
 	movement_loop()
+	sprite_dir_loop()
+	anim_switch("walk")
 	var attack = next_attack
 	select_spell_loop()
 	attack_loop()

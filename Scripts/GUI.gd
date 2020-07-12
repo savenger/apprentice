@@ -85,6 +85,8 @@ func close_Controls():
 
 func _on_Button_Menu_pressed():
 	get_tree().change_scene("res://Scenes/MainMenu.tscn")
+	unpause()
+	get_tree().paused = false
 
 
 func _on_Button_Retry_pressed():
