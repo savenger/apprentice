@@ -9,7 +9,7 @@ func _init():
 	TYPE = "PORTAL"
 	ELEMENT = global.ELEMENTS.Fire
 
-var active setget active_set
+var active = true setget active_set
 const MAX_SUPPORTED_MONSTERS = 2
 var supported_monsters = MAX_SUPPORTED_MONSTERS
 

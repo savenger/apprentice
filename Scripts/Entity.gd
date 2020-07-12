@@ -92,6 +92,9 @@ func damage_loop():
 					multiplier = 2
 				elif body.get("ELEMENT") == get("ELEMENT"):
 					multiplier = -1
+			if health - multiplier * body.get("DAMAGE") <= 0 and TYPE == "PORTAL" and get("active"):
+				get_parent().score += 5
+				get_parent().get_node("GUI").updateScore(get_parent().score)
 			update_health(health - multiplier * body.get("DAMAGE"))
 			hit_stun = 5
 			knock_dir = global_transform.origin - body.global_transform.origin
@@ -130,4 +133,4 @@ func died():
 		# instance_scene(preload("res://Scenes/EnemyDeath.tscn"))
 		queue_free()
 	elif TYPE == "PORTAL":
-		get_parent().score += 5
+		pass
