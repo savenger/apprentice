@@ -39,4 +39,6 @@ shape = SubResource( 2 )
 
 [node name="spellWind" type="Sprite" parent="."]
 texture = SubResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="spellWind"]
 [connection signal="body_entered" from="." to="." method="_on_Spell_body_entered"]
