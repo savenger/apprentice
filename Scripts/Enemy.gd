@@ -31,11 +31,12 @@ func attack_loop():
 			elements.Wind:
 				el = "Wind"
 				spell_instance = spell_wind.instance()
-		
 		spell_instance.ORIGIN = "Enemy"
 		var player = get_node("../Player")
-		get_node("Origin").rotation = get_angle_to(player.global_position)
+		var r = get_angle_to(player.global_position)
+		get_node("Origin").rotation = r
 		spell_instance.position = get_node("Origin/Aim").get_global_position()
+		spell_instance.rotation = r
 		get_parent().add_child(spell_instance)
 
 
