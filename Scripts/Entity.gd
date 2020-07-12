@@ -129,4 +129,4 @@ func died():
 		# instance_scene(preload("res://Scenes/EnemyDeath.tscn"))
 		queue_free()
 	elif TYPE == "PORTAL":
-		pass
+		get_parent().score += 5

@@ -36,6 +36,7 @@ position = Vector2( 142.099, 857.193 )
 
 [node name="Portal2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1706.22, 200.998 )
+ELEMENT = 1
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 z_index = -20
