@@ -5,12 +5,16 @@ var move_timer = 0
 
 var ELEMENT
 
+var charged
+
 var spell_fire = preload("res://Scenes/SpellFire.tscn")
 var spell_ice = preload("res://Scenes/SpellIce.tscn")
 var spell_earth = preload("res://Scenes/SpellEarth.tscn")
 var spell_wind = preload("res://Scenes/SpellWind.tscn")
 
 func _init():
+	# determines if player has hit this enemy with the enemy's element
+	charged = false
 	MAX_HEALTH = 40
 	health = MAX_HEALTH
 
@@ -32,6 +36,11 @@ func attack_loop():
 				el = "Wind"
 				spell_instance = spell_wind.instance()
 		spell_instance.ORIGIN = "Enemy"
+		if charged:
+			spell_instance.DAMAGE *= 2
+			spell_instance.set_charged(true)
+			charged = false
+		print(spell_instance.DAMAGE)
 		var player = get_node("../Player")
 		var r = get_angle_to(player.global_position)
 		get_node("Origin").rotation = r
