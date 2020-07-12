@@ -11,10 +11,10 @@ const MIN_Y = 128
 const MAX_Y = 768
 
 var spawn_areas = {
-	elements.Fire: [],
-	elements.Ice: [],
-	elements.Earth: [],
-	elements.Wind: []
+	global.ELEMENTS.Fire: [],
+	global.ELEMENTS.Ice: [],
+	global.ELEMENTS.Earth: [],
+	global.ELEMENTS.Wind: []
 }
 var win_size = OS.get_window_size()
 var enemy_ice = preload("res://Scenes/EnemyIce.tscn")
@@ -34,13 +34,13 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	var enemy
-	if enemy_type == elements.Fire:
+	if enemy_type == global.ELEMENTS.Fire:
 		enemy = enemy_fire.instance()
-	elif enemy_type == elements.Ice:
+	elif enemy_type == global.ELEMENTS.Ice:
 		enemy = enemy_ice.instance()
-	elif enemy_type == elements.Earth:
+	elif enemy_type == global.ELEMENTS.Earth:
 		enemy = enemy_earth.instance()
-	elif enemy_type == elements.Wind:
+	elif enemy_type == global.ELEMENTS.Wind:
 		enemy = enemy_wind.instance()
 	enemy.position = global_position
 	get_parent().add_child(enemy)

@@ -19,16 +19,16 @@ func attack_loop():
 		var spell_instance
 		var el = "Fire"
 		match ELEMENT:
-			elements.Fire:
+			global.ELEMENTS.Fire:
 				el = "Fire"
 				spell_instance = spell_fire.instance()
-			elements.Ice:
+			global.ELEMENTS.Ice:
 				el = "Ice"
 				spell_instance = spell_ice.instance()
-			elements.Earth:
+			global.ELEMENTS.Earth:
 				el = "Earth"
 				spell_instance = spell_earth.instance()
-			elements.Wind:
+			global.ELEMENTS.Wind:
 				el = "Wind"
 				spell_instance = spell_wind.instance()
 		spell_instance.ORIGIN = "Enemy"

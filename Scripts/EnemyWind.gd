@@ -4,7 +4,7 @@ func _init():
 	SPEED = 60
 	DAMAGE = 8
 	TYPE = "ENEMY"
-	ELEMENT = elements.Wind
+	ELEMENT = global.ELEMENTS.Wind
 
 func _ready():
 	pass

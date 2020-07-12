@@ -5,7 +5,7 @@ func _init():
 	health = MAX_HEALTH
 	SPEED = 500
 	TYPE = "PLAYER"
-	next_attack = elements.Fire
+	next_attack = global.ELEMENTS.Fire
 
 var MAX_ENERGY = 100.0
 var energy = MAX_ENERGY
@@ -33,13 +33,13 @@ func attack_loop():
 		just_attacked = false
 		if (randi() % 14 < 1):
 			next_attack = randi() % 4
-		if next_attack == elements.Fire:
+		if next_attack == global.ELEMENTS.Fire:
 			get_node("Origin/SpellSprite").texture = spell_fire.instance().get_node("spellFire").texture
-		elif next_attack == elements.Ice:
+		elif next_attack == global.ELEMENTS.Ice:
 			get_node("Origin/SpellSprite").texture = spell_ice.instance().get_node("spellIce").texture
-		elif next_attack == elements.Earth:
+		elif next_attack == global.ELEMENTS.Earth:
 			get_node("Origin/SpellSprite").texture = spell_earth.instance().get_node("spellEarth").texture
-		elif next_attack == elements.Wind:
+		elif next_attack == global.ELEMENTS.Wind:
 			get_node("Origin/SpellSprite").texture = spell_wind.instance().get_node("spellWind").texture
 		get_node("Origin/SpellSprite").visible = true
 	if Input.is_action_pressed("spell") and !just_attacked:
@@ -51,13 +51,13 @@ func attack_loop():
 	if (Input.is_action_just_released("spell") or energy <= 0) and !just_attacked:
 		get_node("Origin/SpellSprite").visible = false
 		var spell
-		if next_attack == elements.Fire:
+		if next_attack == global.ELEMENTS.Fire:
 			spell = spell_fire.instance()
-		elif next_attack == elements.Ice:
+		elif next_attack == global.ELEMENTS.Ice:
 			spell = spell_ice.instance()
-		elif next_attack == elements.Earth:
+		elif next_attack == global.ELEMENTS.Earth:
 			spell = spell_earth.instance()
-		elif next_attack == elements.Wind:
+		elif next_attack == global.ELEMENTS.Wind:
 			spell = spell_wind.instance()
 		spell.position = get_node("Origin/Aim").get_global_position()
 		spell.rotation = rotation
@@ -70,13 +70,13 @@ func attack_loop():
 func select_spell_loop():
 	if (!load_attack):
 		if Input.is_action_just_pressed("use_spell_1"):
-			next_attack = elements.Fire
+			next_attack = global.ELEMENTS.Fire
 		elif Input.is_action_just_pressed("use_spell_2"):
-			next_attack = elements.Ice
+			next_attack = global.ELEMENTS.Ice
 		elif Input.is_action_just_pressed("use_spell_3"):
-			next_attack = elements.Earth
+			next_attack = global.ELEMENTS.Earth
 		elif Input.is_action_just_pressed("use_spell_4"):
-			next_attack = elements.Wind
+			next_attack = global.ELEMENTS.Wind
 		elif Input.is_action_just_released("next_spell"):
 			next_attack = (next_attack + 1) % 4
 		elif Input.is_action_just_released("previous_spell"):

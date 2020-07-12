@@ -7,7 +7,7 @@ func _init():
 	health = MAX_HEALTH
 	SPEED = 0
 	TYPE = "PORTAL"
-	ELEMENT = elements.Fire
+	ELEMENT = global.ELEMENTS.Fire
 
 var active setget active_set
 const MAX_SUPPORTED_MONSTERS = 2
@@ -15,13 +15,13 @@ var supported_monsters = MAX_SUPPORTED_MONSTERS
 
 func _ready():
 	match ELEMENT:
-		elements.Fire:
+		global.ELEMENTS.Fire:
 			$portals.frame = 4
-		elements.Ice:
+		global.ELEMENTS.Ice:
 			$portals.frame = 5
-		elements.Earth:
+		global.ELEMENTS.Earth:
 			$portals.frame = 6
-		elements.Wind:
+		global.ELEMENTS.Wind:
 			$portals.frame = 7
 
 func active_set(new_value):

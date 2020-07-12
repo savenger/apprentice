@@ -3,7 +3,7 @@ extends "res://Scripts/Spell.gd"
 func _init():
 	SPEED = 800
 	DAMAGE = 30
-	ELEMENT = elements.Ice
+	ELEMENT = global.ELEMENTS.Ice
 	ORIGIN = "Player"
 
 func _on_Spell_body_entered(body):

@@ -80,14 +80,14 @@ func damage_loop():
 			var multiplier = 1
 			knock_multiplier = 1
 			if TYPE == "ENEMY":
-				if body.get("ELEMENT") == elements.COUNTER_ELEMENTS[get("ELEMENT")]:
+				if body.get("ELEMENT") == global.COUNTER_ELEMENTS[get("ELEMENT")]:
 					multiplier = 2
 				elif body.get("ELEMENT") == get("ELEMENT"):
 					multiplier = -1
-				if body.get("ELEMENT") == elements.Wind:
+				if body.get("ELEMENT") == global.ELEMENTS.Wind:
 					knock_multiplier = 3
 			if TYPE == "PORTAL":
-				if body.get("ELEMENT") == elements.COUNTER_ELEMENTS[get("ELEMENT")]:
+				if body.get("ELEMENT") == global.COUNTER_ELEMENTS[get("ELEMENT")]:
 					multiplier = 2
 				elif body.get("ELEMENT") == get("ELEMENT"):
 					multiplier = -1

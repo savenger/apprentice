@@ -55,16 +55,16 @@ func updateActiveSpell(spell):
 	get_node("Skill Container/HBoxContainer2/HBoxContainer/CenterContainer3/IconCanvas").visible = false
 	get_node("Skill Container/HBoxContainer2/HBoxContainer/CenterContainer4/IconCanvas").visible = false
 	match spell:
-		elements.Fire:
+		global.ELEMENTS.Fire:
 			get_node("Skill Container/HBoxContainer2/HBoxContainer/Control/CenterContainer/VBoxContainer/PanelContainer/CenterContainer/TextureRect").texture = load("res://Assets/Graphics/Projectiles/fire_0.png")
 			get_node("Skill Container/HBoxContainer2/HBoxContainer/CenterContainer/IconCanvas").visible = true
-		elements.Ice:
+		global.ELEMENTS.Ice:
 			get_node("Skill Container/HBoxContainer2/HBoxContainer/Control/CenterContainer/VBoxContainer/PanelContainer/CenterContainer/TextureRect").texture = load("res://Assets/Graphics/Projectiles/ice_0.png")
 			get_node("Skill Container/HBoxContainer2/HBoxContainer/CenterContainer2/IconCanvas").visible = true
-		elements.Earth:
+		global.ELEMENTS.Earth:
 			get_node("Skill Container/HBoxContainer2/HBoxContainer/Control/CenterContainer/VBoxContainer/PanelContainer/CenterContainer/TextureRect").texture = load("res://Assets/Graphics/Projectiles/rock.png")
 			get_node("Skill Container/HBoxContainer2/HBoxContainer/CenterContainer3/IconCanvas").visible = true
-		elements.Wind:
+		global.ELEMENTS.Wind:
 			get_node("Skill Container/HBoxContainer2/HBoxContainer/Control/CenterContainer/VBoxContainer/PanelContainer/CenterContainer/TextureRect").texture = load("res://Assets/Graphics/Projectiles/wind_0.png")
 			get_node("Skill Container/HBoxContainer2/HBoxContainer/CenterContainer4/IconCanvas").visible = true
 
