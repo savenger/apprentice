@@ -10,7 +10,11 @@ func _init():
 func _on_Spell_body_entered(body):
 	if body.name != ORIGIN:
 		splash()
-		get_parent().get_node("Soundsystem").playSound("ice_impact")
+		var sound = load("res://Assets/Sounds/SFX/ASP_IceImpact.tscn")
+		var node = sound.instance()
+		node.position = position
+		node.pitch_scale = rand_range(0.7, 2)
+		get_parent().add_child(node)
 		queue_free()
 
 func set_charged(value):

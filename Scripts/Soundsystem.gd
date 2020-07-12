@@ -9,6 +9,7 @@ func playSound(sound):
 	match sound:
 		"ice_impact":
 			get_node("ASP_ShardImpact").pitch_scale = rand_range(0.7, 2)
+			
 			get_node("ASP_ShardImpact").play()
 		"fire_impact":
 			get_node("ASP_FireImpact").pitch_scale = rand_range(0.7, 2)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sounds/SFX/explosion.wav" type="AudioStream" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends AudioStreamPlayer2D
+
+
+func _on_ASP_FireImpact_finished():
+	queue_free()
+"
+
+[node name="ASP_FireImpact" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+autoplay = true
+script = SubResource( 1 )
+[connection signal="finished" from="." to="." method="_on_ASP_FireImpact_finished"]

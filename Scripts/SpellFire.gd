@@ -10,7 +10,12 @@ func _init():
 func _on_Spell_body_entered(body):
 	if body.name != ORIGIN:
 		splash()
-		get_parent().get_node("Soundsystem").playSound("fire_shard")
+		var sound = load("res://Assets/Sounds/SFX/ASP_FireImpact.tscn")
+		var node = sound.instance()
+		node.position = position
+		node.pitch_scale = rand_range(0.7, 2)
+		get_parent().add_child(node)
+		
 		queue_free()
 
 func set_charged(value):

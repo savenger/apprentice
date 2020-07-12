@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sounds/SFX/221528__unfa__glass-break.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Sounds/SFX/ASP_IceImpact.gd" type="Script" id=2]
+
+[node name="ASP_IceImpact" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+autoplay = true
+bus = "SFX"
+script = ExtResource( 2 )
+[connection signal="finished" from="." to="." method="_on_ASP_IceImpact_finished"]
