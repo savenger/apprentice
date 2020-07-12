@@ -33,7 +33,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Portal" parent="." instance=ExtResource( 8 )]
-position = Vector2( 184, 168 )
+position = Vector2( 184, 180 )
 
 [node name="Portal2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 128, 728 )
@@ -44,7 +44,7 @@ position = Vector2( 1784, 728 )
 ELEMENT = 2
 
 [node name="Portal4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1776, 136 )
+position = Vector2( 1744, 272 )
 ELEMENT = 3
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
