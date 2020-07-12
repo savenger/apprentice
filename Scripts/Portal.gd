@@ -1,6 +1,6 @@
 extends "res://Scripts/Entity.gd"
 
-var ELEMENT
+export (global.ELEMENTS) var ELEMENT
 
 func _init():
 	MAX_HEALTH = 200
