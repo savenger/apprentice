@@ -61,7 +61,7 @@ func attack_loop():
 			spell = spell_wind.instance()
 		spell.position = get_node("Origin/Aim").get_global_position()
 		spell.rotation = rotation
-		spell.SPEED = shot_power * 8
+		spell.SPEED = shot_power * 20
 		spell.DAMAGE = shot_power / 6
 		get_parent().add_child(spell)
 		load_attack = false
