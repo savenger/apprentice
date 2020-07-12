@@ -12,7 +12,7 @@ func _on_TextureButton_Credits_pressed():
 
 
 func _on_TextureButton_NewGame_pressed():
-	get_tree().change_scene("res://Scenes/Main.tscn")
+	get_tree().change_scene("res://Scenes/Intro.tscn")
 
 
 func _on_AudioStreamPlayer_finished():

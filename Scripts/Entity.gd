@@ -9,7 +9,7 @@ var health
 var move_dir = Vector2(0, 0)
 var knock_dir = Vector2(0, 0)
 var knock_multiplier = 1
-var sprite_dir = "stop"
+var sprite_dir = "down"
 
 var hit_stun = 0
 var texture_default = null
