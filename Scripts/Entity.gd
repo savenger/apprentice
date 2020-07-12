@@ -135,6 +135,7 @@ func died():
 		#game_over
 		print("game over")
 		get_parent().get_node("GUI").death()
+		queue_free()
 	elif TYPE == "ENEMY":
 		get_parent().score += 1
 		get_parent().get_node("GUI").updateScore(get_parent().score)
