@@ -1,13 +1,17 @@
 extends Control
 
-var paused = false;
+var paused = false
+
+
 
 func pause():
 	paused = true
+	get_tree().paused = true
 	get_node("CenterContainer_Pause").visible = true
 
 func unpause():
 	paused = false
+	get_tree().paused = false
 	
 	get_node("CenterContainer_Pause").visible = false
 	
@@ -19,7 +23,9 @@ func _on_Button_Resume_pressed():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
-		if !paused:
+		if get_node("Panel_Controls").visible:
+			close_Controls()	
+		elif !paused:
 			pause()
 		else:
 			unpause()
@@ -57,3 +63,14 @@ func updateActiveSpell(spell):
 
 func _on_Button_Quit_pressed():
 	get_tree().quit()
+
+
+func _on_Button_pressed():
+	close_Controls()
+
+
+func _on_Button_Controls_pressed():
+	get_node("Panel_Controls").visible = true
+	
+func close_Controls():
+	get_node("Panel_Controls").visible = false	
