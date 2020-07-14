@@ -19,7 +19,7 @@ func _init():
 	health = MAX_HEALTH
 
 func attack_loop():
-	if randi() % (300) == 1:
+	if randi() % (300) == 1 or charged:
 		var spell_instance
 		var el = "Fire"
 		match ELEMENT:
@@ -37,7 +37,7 @@ func attack_loop():
 				spell_instance = spell_wind.instance()
 		spell_instance.ORIGIN = "Enemy"
 		if charged:
-			spell_instance.DAMAGE *= 2
+			spell_instance.DAMAGE *= 3
 			spell_instance.set_charged(true)
 			charged = false
 		var player = get_node("../Player")

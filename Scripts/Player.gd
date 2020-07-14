@@ -13,7 +13,7 @@ var attack_cost = 20
 var next_attack
 var shot_power : int = 0
 var load_attack = false
-var just_attacked = false
+var just_attacked = true
 
 var spr_player_front = preload("res://Assets/Graphics/Lehrling(Proto).png")
 var spr_player_right = preload("res://Assets/Graphics/Lehrling(rightside).png")
@@ -63,6 +63,7 @@ func attack_loop():
 		spell.rotation = rotation
 		spell.SPEED = shot_power * 8
 		spell.DAMAGE = shot_power / 6
+		spell.ORIGIN = "Player"
 		get_parent().add_child(spell)
 		load_attack = false
 		just_attacked = true
@@ -89,19 +90,13 @@ func update_energy(value):
 func _physics_process(delta):
 	move_dir.x = 0
 	move_dir.y = 0
-#	get_node("Sprite").set_flip_h(false)
 	if Input.is_action_pressed("move_up"):
 		move_dir.y -= 5
-#		get_node("Sprite").texture = spr_player_back
 	if Input.is_action_pressed("move_down"):
-#		get_node("Sprite").texture = spr_player_front
 		move_dir.y += 5
 	if Input.is_action_pressed("move_left"):
-#		get_node("Sprite").texture = spr_player_right
-#		get_node("Sprite").set_flip_h(true)
 		move_dir.x -= 5
 	if Input.is_action_pressed("move_right"):
-#		get_node("Sprite").texture = spr_player_right
 		move_dir.x += 5
 	move_dir = move_dir.normalized() * SPEED
 	movement_loop()

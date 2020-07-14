@@ -1,28 +1,30 @@
 extends Control
 
 var paused = false
-
-
+var dead = false
 
 func pause():
-	paused = true
-	get_tree().paused = true
-	get_node("CenterContainer_Pause").visible = true
+	if !dead:
+		paused = true
+		get_tree().paused = true
+		get_node("CenterContainer_Pause").visible = true
 
 func unpause():
-	paused = false
-	get_tree().paused = false
-	
-	get_node("CenterContainer_Pause").visible = false
+	if !dead:
+		paused = false
+		get_tree().paused = false
+		get_node("CenterContainer_Pause").visible = false
 
 var deathMessages = ["U Dead", "You have died", "Try again", "It was just a scratch!"]
-	
+
 func death():
+	dead = true
+	get_parent().save_score()
 	get_tree().paused = true
 	get_node("ColorRect_Dead").visible = true
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var randomNumber = rng.randf_range(0, deathMessages.size())
+	var randomNumber = rng.randf_range(0, deathMessages.size() - 1)
 	get_node("ColorRect_Dead/CenterContainer_DeathScreen/VBoxContainer/Label_Dead").text = deathMessages[randomNumber]
 
 func _on_Button_Resume_pressed():
@@ -38,6 +40,7 @@ func _process(delta):
 			unpause()
 
 func _on_Button_Suicide_pressed():
+	unpause()
 	death()
 
 func updateHealth(newHealth):
@@ -69,33 +72,27 @@ func updateActiveSpell(spell):
 			get_node("Skill Container/HBoxContainer2/HBoxContainer/CenterContainer4/IconCanvas").visible = true
 
 func _on_Button_Quit_pressed():
+	get_parent().save_score()
+	print("exit")
+	get_tree().queue_delete(get_tree())
 	get_tree().quit()
-
-
-
-
 
 func _on_Button_Controls_pressed():
 	get_node("Panel_Controls").visible = true
 	
 func close_Controls():
-	get_node("Panel_Controls").visible = false	
-
-
+	get_node("Panel_Controls").visible = false
 
 func _on_Button_Menu_pressed():
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")
-	unpause()
 	get_tree().paused = false
-
+	get_parent().get_parent().get_node("Sound/AudioStreamPlayer_Full").play()
+	get_parent().queue_free()
 
 func _on_Button_Retry_pressed():
-	get_node("ColorRect_Dead").visible = true
-	unpause()
+	var newGame = load("res://Scenes/Main.tscn").instance()
+	get_parent().get_parent().add_child(newGame)
 	get_tree().paused = false
-	get_tree().reload_current_scene()
-	
-
+	get_parent().queue_free()
 
 func _on_Button_pressed():
 	close_Controls()

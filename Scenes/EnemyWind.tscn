@@ -6,12 +6,12 @@
 [ext_resource path="res://Assets/UI/HealthBar.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 34.1528
+radius = 48.0
 height = 37.1299
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 31.7744
-height = 44.2652
+radius = 39.6277
+height = 48.8381
 
 [sub_resource type="Animation" id=3]
 resource_name = "walkdown"
@@ -88,22 +88,22 @@ collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 9.17889, -4.30475 )
+position = Vector2( -4, 8 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 10
-frame = 10
+frame = 19
 region_enabled = true
-region_rect = Rect2( -5.81232, 109.659, 1685.88, 586.195 )
+region_rect = Rect2( -5.81232, 109.659, 1685.88, 644.361 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 11.3636, 38.4997 )
+position = Vector2( 0, 10 )
 shape = SubResource( 1 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 14.8574, 40.1833 )
+position = Vector2( 0, 10 )
 shape = SubResource( 2 )
 
 [node name="Origin" type="Position2D" parent="."]

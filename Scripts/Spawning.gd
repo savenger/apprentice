@@ -3,8 +3,8 @@ extends Particles2D
 var enemy_type
 var origin
 const BORDER = 24
-const MAX_PARTICLES = 1000
-const MIN_PARTICLES = 100
+const MAX_PARTICLES = 500
+const MIN_PARTICLES = 200
 
 const MIN_X = 256
 const MAX_X = 1664

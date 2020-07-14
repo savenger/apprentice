@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Assets/Menu/logo_final.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Menu/credits_normal_1.png" type="Texture" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://Assets/Menu/back_button.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Menu/back_button_1.png" type="Texture" id=37]
 [ext_resource path="res://Assets/Menu/back_button-2.png" type="Texture" id=38]
+[ext_resource path="res://Scenes/HighscoreScreen.tscn" type="PackedScene" id=39]
 
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
@@ -139,6 +140,9 @@ margin_left = 100.0
 margin_top = 50.0
 margin_right = 1870.0
 margin_bottom = 1030.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer"]
 margin_right = 645.0
@@ -231,6 +235,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HighscoreScreen" parent="." instance=ExtResource( 39 )]
+visible = false
+
 [node name="Splashscreens" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -240,6 +247,7 @@ __meta__ = {
 }
 
 [node name="Spielwerker" type="CenterContainer" parent="Splashscreens"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -257,6 +265,7 @@ __meta__ = {
 }
 
 [node name="TeamMembers2" type="TextureRect" parent="Splashscreens"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 35 )
@@ -276,6 +285,7 @@ __meta__ = {
 wait_time = 2.0
 autostart = true
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_NewGame" to="." method="_on_TextureButton_NewGame_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_Scores" to="." method="_on_TextureButton_Scores_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_Credits" to="." method="_on_TextureButton_Credits_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/VBoxContainer/TextureButton_Exit" to="." method="_on_TextureButton_Exit_pressed"]
 [connection signal="finished" from="Sound/AudioStreamPlayer_Intro" to="." method="_on_AudioStreamPlayer_finished"]

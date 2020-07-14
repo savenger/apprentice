@@ -86,7 +86,7 @@ color = Color( 0.239216, 0.129412, 0.101961, 1 )
 hue_variation = 0.01
 hue_variation_random = 1.0
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=8]
 lifetime_randomness = 0.06
 flag_disable_z = true
 spread = 180.0
@@ -104,7 +104,7 @@ color = Color( 0.317647, 0.270588, 0.243137, 0.278431 )
 hue_variation = 0.01
 hue_variation_random = 1.0
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=9]
 lifetime_randomness = 0.06
 flag_disable_z = true
 spread = 180.0
@@ -120,7 +120,7 @@ scale = 12.37
 scale_random = 0.35
 color = Color( 0.686275, 0.686275, 0.686275, 0.176471 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=10]
 flag_align_y = true
 flag_rotate_y = true
 flag_disable_z = true
@@ -147,7 +147,7 @@ shape = SubResource( 1 )
 [node name="Node" type="Node2D" parent="."]
 
 [node name="Particles_Fire" type="Particles2D" parent="Node"]
-visible = false
+emitting = false
 amount = 40
 lifetime = 0.4
 explosiveness = 1.0
@@ -156,21 +156,22 @@ process_material = SubResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="Particles_Ice" type="Particles2D" parent="Node"]
-visible = false
 scale = Vector2( 2, 2 )
+emitting = false
 amount = 20
 process_material = SubResource( 3 )
 texture = ExtResource( 6 )
 
 [node name="Particles2D3_IceWind" type="Particles2D" parent="Node/Particles_Ice"]
 scale = Vector2( 0.5, 0.5 )
+emitting = false
 amount = 6
 lifetime = 0.5
 process_material = SubResource( 4 )
 texture = ExtResource( 3 )
 
 [node name="Particles2D_Earth" type="Particles2D" parent="Node"]
-visible = false
+emitting = false
 amount = 22
 lifetime = 0.3
 explosiveness = 1.0
@@ -179,20 +180,22 @@ process_material = SubResource( 7 )
 texture = ExtResource( 5 )
 
 [node name="Particles2D3_IceWind2" type="Particles2D" parent="Node/Particles2D_Earth"]
-amount = 6
-lifetime = 0.5
-process_material = SubResource( 10 )
-texture = ExtResource( 3 )
-
-[node name="Particles2D_Wind" type="Particles2D" parent="Node"]
-visible = false
+emitting = false
 amount = 6
 lifetime = 0.5
 process_material = SubResource( 8 )
 texture = ExtResource( 3 )
 
+[node name="Particles2D_Wind" type="Particles2D" parent="Node"]
+emitting = false
+amount = 6
+lifetime = 0.5
+process_material = SubResource( 9 )
+texture = ExtResource( 3 )
+
 [node name="Particles2D" type="Particles2D" parent="Node/Particles2D_Wind"]
+emitting = false
 lifetime = 0.5
 explosiveness = 1.0
-process_material = SubResource( 9 )
+process_material = SubResource( 10 )
 texture = ExtResource( 4 )

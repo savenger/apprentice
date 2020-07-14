@@ -10,6 +10,7 @@ var move_dir = Vector2(0, 0)
 var knock_dir = Vector2(0, 0)
 var knock_multiplier = 1
 var sprite_dir = "down"
+var died = false
 
 var hit_stun = 0
 var texture_default = null
@@ -79,7 +80,7 @@ func anim_switch(animation):
 
 func damage_loop():
 	health = min(MAX_HEALTH, health)
-	if health <= 0:
+	if health <= 0 and !died:
 		died()
 	if hit_stun > 0:
 		hit_stun -= 1
@@ -96,7 +97,8 @@ func damage_loop():
 					multiplier = 2
 				elif body.get("ELEMENT") == get("ELEMENT"):
 					multiplier = -1
-					set("charged", true)
+					if body.get("ORIGIN") == "Player":
+						set("charged", true)
 				if body.get("ELEMENT") == global.ELEMENTS.Wind:
 					knock_multiplier = 3
 			if TYPE == "PORTAL":
@@ -132,10 +134,10 @@ func update_health(value):
 
 func died():
 	if TYPE == "PLAYER":
-		#game_over
-		print("game over")
+		#print("game over")
+		died = true
+		visible = false
 		get_parent().get_node("GUI").death()
-		queue_free()
 	elif TYPE == "ENEMY":
 		get_parent().score += 1
 		get_parent().get_node("GUI").updateScore(get_parent().score)

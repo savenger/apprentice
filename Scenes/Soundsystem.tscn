@@ -22,3 +22,6 @@ bus = "Music"
 stream = ExtResource( 4 )
 autoplay = true
 bus = "Music"
+[connection signal="finished" from="ASPlayer_Base" to="." method="_on_ASPlayer_Base_finished"]
+[connection signal="finished" from="ASPlayer_Solo" to="." method="_on_ASPlayer_Solo_finished"]
+[connection signal="finished" from="ASPlayer_Random" to="." method="_on_ASPlayer_Random_finished"]

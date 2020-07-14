@@ -9,7 +9,7 @@ func _init():
 
 func _on_Spell_body_entered(body):
 	if body.name != ORIGIN:
-		splash()
+		call_deferred("splash")
 		queue_free()
 
 func set_charged(value):

@@ -23,3 +23,6 @@ func _process(delta):
 		spawn.origin = monster_portals[spawn.enemy_type]
 		add_child(spawn)
 		enemies += 1
+
+func save_score():
+	get_parent().update_highscore(score)
